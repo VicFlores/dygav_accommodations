@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  height: 90vh;
   background-image: url('https://multimedia.dygav.es/wp-content/uploads/2024/04/13_qih5tu.png');
   background-size: cover;
   padding: 0 40px;
   color: white;
+  position: relative; /* Add this line */
 }
 
 .title {

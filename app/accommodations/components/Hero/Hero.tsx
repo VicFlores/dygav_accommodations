@@ -21,7 +21,7 @@ export const Hero = () => {
           <div className={styles.input_container}>
             <select defaultValue=''>
               <option value='' disabled>
-                Escoge tu cuidad
+                Cuidad
               </option>
               <option value='ciudad1'>Ciudad 1</option>
               <option value='ciudad2'>Ciudad 2</option>
