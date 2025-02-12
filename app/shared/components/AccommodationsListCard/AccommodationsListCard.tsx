@@ -7,6 +7,7 @@ import { PiToiletLight } from 'react-icons/pi';
 import { PiPencilRuler } from 'react-icons/pi';
 import { GoPeople } from 'react-icons/go';
 import { CiCircleChevLeft, CiCircleChevRight } from 'react-icons/ci';
+import { AiOutlineHeart } from 'react-icons/ai'; // Import heart icon
 import styles from './AccommodationsListCard.module.css';
 
 interface Accommodation {
@@ -51,8 +52,7 @@ export const AccommodationsListCard: FC<AccommodationsListCardProps> = ({
         {accommodations.map((accommodation) => (
           <div key={accommodation.id} className={styles.card}>
             <figure className={styles.imageContainer}>
-              <i>heart icon</i>
-
+              <AiOutlineHeart className={styles.heartIcon} /> {/* Heart icon */}
               <Image
                 src={accommodation.image}
                 alt={accommodation.alt}

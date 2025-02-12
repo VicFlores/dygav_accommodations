@@ -18,7 +18,7 @@
 
 .leftArrow {
   position: absolute;
-  top: 47%;
+  top: 41%;
   left: 0;
   transform: translateY(-50%);
   z-index: 1;
@@ -31,7 +31,7 @@
 
 .rightArrow {
   position: absolute;
-  top: 47%;
+  top: 41%;
   right: 0;
   transform: translateY(-50%);
   z-index: 1;
@@ -43,31 +43,33 @@
 }
 
 .card {
-  min-width: 350px;
+  min-width: 335px;
   margin: 0 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease,
-    background-color 0.3s ease;
-}
-
-.card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background-color: #f0f0f0;
 }
 
 .imageContainer {
   margin: 0;
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 220px;
 }
 
 .imageContainer img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 5px;
+  object-fit: fill;
+  border-radius: 10px 10px 0 0;
+}
+
+.heartIcon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: #f4511e;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 2;
 }
 
 .cardTitle {
@@ -101,7 +103,7 @@
   background-color: #f4511e;
   color: white;
   height: 55px;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 10px 10px;
 }
 
 .card_amenities_item {
