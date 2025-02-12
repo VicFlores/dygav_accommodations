@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import React from 'react';
+import { Navbar } from '../shared';
 
 export const metadata: Metadata = {
   title: 'Accomodations',
@@ -10,6 +11,8 @@ export const metadata: Metadata = {
 const AccommodationsPage = () => {
   return (
     <div>
+      <Navbar />
+
       <h1>AccommodationsPage</h1>
     </div>
   );
