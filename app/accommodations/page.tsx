@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import React from 'react';
 import { Navbar } from '../shared';
+import { Hero } from './components';
 
 export const metadata: Metadata = {
   title: 'Accomodations',
@@ -13,7 +14,7 @@ const AccommodationsPage = () => {
     <div>
       <Navbar />
 
-      <h1>AccommodationsPage</h1>
+      <Hero />
     </div>
   );
 };
