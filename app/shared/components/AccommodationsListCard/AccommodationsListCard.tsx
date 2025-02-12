@@ -1,14 +1,14 @@
 'use client';
 
-import React, { FC, useRef, useState } from 'react';
-import Image from 'next/image';
+import React, { FC, useRef } from 'react';
 import { PiBedLight } from 'react-icons/pi';
 import { PiToiletLight } from 'react-icons/pi';
 import { PiPencilRuler } from 'react-icons/pi';
 import { GoPeople } from 'react-icons/go';
 import { CiCircleChevLeft, CiCircleChevRight } from 'react-icons/ci';
-import { AiOutlineHeart } from 'react-icons/ai'; // Import heart icon
+import { AiOutlineHeart } from 'react-icons/ai';
 import styles from './AccommodationsListCard.module.css';
+import { AccommodationsCarousel } from '../AccommodationsCarousel/AccommodationsCarousel';
 
 interface Accommodation {
   id: number;
@@ -53,7 +53,8 @@ export const AccommodationsListCard: FC<AccommodationsListCardProps> = ({
           <div key={accommodation.id} className={styles.card}>
             <figure className={styles.imageContainer}>
               <AiOutlineHeart className={styles.heartIcon} />
-              <ImageCarousel
+
+              <AccommodationsCarousel
                 images={accommodation.images}
                 alt={accommodation.alt}
               />
@@ -93,36 +94,6 @@ export const AccommodationsListCard: FC<AccommodationsListCardProps> = ({
       </div>
 
       <CiCircleChevRight className={styles.rightArrow} onClick={scrollRight} />
-    </div>
-  );
-};
-
-const ImageCarousel: FC<{ images: string[]; alt: string }> = ({
-  images,
-  alt,
-}) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  return (
-    <div className={styles.carousel}>
-      <CiCircleChevLeft className={styles.carouselArrow} onClick={handlePrev} />
-      <Image src={images[currentIndex]} alt={alt} layout='fill' />
-      <CiCircleChevRight
-        className={styles.carouselArrow}
-        onClick={handleNext}
-      />
     </div>
   );
 };
