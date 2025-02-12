@@ -7,8 +7,8 @@ import { PiPencilRuler } from 'react-icons/pi';
 import { GoPeople } from 'react-icons/go';
 import { CiCircleChevLeft, CiCircleChevRight } from 'react-icons/ci';
 import { AiOutlineHeart } from 'react-icons/ai';
+import { ImagesCarousel } from '@/app/accommodations/components';
 import styles from './AccommodationsListCard.module.css';
-import { AccommodationsCarousel } from '../AccommodationsCarousel/AccommodationsCarousel';
 
 interface Accommodation {
   id: number;
@@ -54,7 +54,7 @@ export const AccommodationsListCard: FC<AccommodationsListCardProps> = ({
             <figure className={styles.imageContainer}>
               <AiOutlineHeart className={styles.heartIcon} />
 
-              <AccommodationsCarousel
+              <ImagesCarousel
                 images={accommodation.images}
                 alt={accommodation.alt}
               />

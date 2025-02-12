@@ -6,9 +6,9 @@ import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
 } from 'react-icons/md';
-import styles from './ImageCarousel.module.css';
+import styles from './ImagesCarousel.module.css';
 
-export const AccommodationsCarousel: FC<{ images: string[]; alt: string }> = ({
+export const ImagesCarousel: FC<{ images: string[]; alt: string }> = ({
   images,
   alt,
 }) => {
