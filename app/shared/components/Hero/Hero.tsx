@@ -5,7 +5,7 @@ import styles from './Hero.module.css';
 interface HeroProps {
   title: string;
   subtitle: string;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export const Hero: FC<HeroProps> = ({ title, subtitle, children }) => {
