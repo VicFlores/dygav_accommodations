@@ -19,7 +19,7 @@ export const Hero = () => {
           <PiCity className={styles.input_group_icon} />
 
           <div className={styles.input_container}>
-            <select defaultValue=''>
+            <select id='city' defaultValue=''>
               <option value='' disabled>
                 Cuidad
               </option>
@@ -27,7 +27,7 @@ export const Hero = () => {
               <option value='ciudad2'>Ciudad 2</option>
               <option value='ciudad3'>Ciudad 3</option>
             </select>
-            <label>Escoge tu cuidad</label>
+            <label htmlFor='city'>Escoge tu cuidad</label>
           </div>
         </div>
 
@@ -35,8 +35,8 @@ export const Hero = () => {
           <PiCalendarDuotone className={styles.input_group_icon} />
 
           <div className={styles.input_container}>
-            <input type='date' />
-            <label>Fecha de reserva</label>
+            <input id='date' type='date' />
+            <label htmlFor='date'>Fecha de reserva</label>
           </div>
         </div>
 
@@ -44,8 +44,12 @@ export const Hero = () => {
           <PiUsersThree className={styles.input_group_icon} />
 
           <div className={styles.input_container}>
-            <input type='number' placeholder='Número de viajeros' />
-            <label>Huespedes</label>
+            <input
+              id='travelers'
+              type='number'
+              placeholder='Número de viajeros'
+            />
+            <label htmlFor='travelers'>Huespedes</label>
           </div>
         </div>
 
