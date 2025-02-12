@@ -1,9 +1,7 @@
 'use client';
 
 import React, { FC, useRef } from 'react';
-import { PiBedLight } from 'react-icons/pi';
-import { PiToiletLight } from 'react-icons/pi';
-import { PiPencilRuler } from 'react-icons/pi';
+import { PiBedLight, PiToiletLight, PiPencilRuler } from 'react-icons/pi';
 import { GoPeople } from 'react-icons/go';
 import { CiCircleChevLeft, CiCircleChevRight } from 'react-icons/ci';
 import { AiOutlineHeart } from 'react-icons/ai';
