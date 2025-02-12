@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, useRef } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import Image from 'next/image';
 import { PiBedLight } from 'react-icons/pi';
 import { PiToiletLight } from 'react-icons/pi';
@@ -52,11 +52,10 @@ export const AccommodationsListCard: FC<AccommodationsListCardProps> = ({
         {accommodations.map((accommodation) => (
           <div key={accommodation.id} className={styles.card}>
             <figure className={styles.imageContainer}>
-              <AiOutlineHeart className={styles.heartIcon} /> {/* Heart icon */}
-              <Image
-                src={accommodation.images[0]}
+              <AiOutlineHeart className={styles.heartIcon} />
+              <ImageCarousel
+                images={accommodation.images}
                 alt={accommodation.alt}
-                layout='fill'
               />
             </figure>
 
@@ -94,6 +93,36 @@ export const AccommodationsListCard: FC<AccommodationsListCardProps> = ({
       </div>
 
       <CiCircleChevRight className={styles.rightArrow} onClick={scrollRight} />
+    </div>
+  );
+};
+
+const ImageCarousel: FC<{ images: string[]; alt: string }> = ({
+  images,
+  alt,
+}) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  return (
+    <div className={styles.carousel}>
+      <CiCircleChevLeft className={styles.carouselArrow} onClick={handlePrev} />
+      <Image src={images[currentIndex]} alt={alt} layout='fill' />
+      <CiCircleChevRight
+        className={styles.carouselArrow}
+        onClick={handleNext}
+      />
     </div>
   );
 };
