@@ -12,7 +12,7 @@ import styles from './AccommodationsListCard.module.css';
 
 interface Accommodation {
   id: number;
-  image: string;
+  images: string[];
   alt: string;
   title: string;
   description: string;
@@ -54,7 +54,7 @@ export const AccommodationsListCard: FC<AccommodationsListCardProps> = ({
             <figure className={styles.imageContainer}>
               <AiOutlineHeart className={styles.heartIcon} /> {/* Heart icon */}
               <Image
-                src={accommodation.image}
+                src={accommodation.images[0]}
                 alt={accommodation.alt}
                 layout='fill'
               />

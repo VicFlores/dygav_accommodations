@@ -6,8 +6,11 @@ export const ListCard = () => {
   const mockAccommodations = [
     {
       id: 1,
-      image:
+      images: [
         'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+        'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+        'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+      ],
       alt: 'Apartamento con Terraza a Pasos de la Playa',
       title: 'Apartamento con Terraza a Pasos de la Playa',
       description:
@@ -18,11 +21,13 @@ export const ListCard = () => {
       size: '120m',
       maxGuests: 4,
     },
-
     {
       id: 2,
-      image:
+      images: [
         'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+        'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+        'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+      ],
       alt: 'Apartamento con Terraza a Pasos de la Playa',
       title: 'Apartamento con Terraza a Pasos de la Playa',
       description:
@@ -33,11 +38,13 @@ export const ListCard = () => {
       size: '120m',
       maxGuests: 4,
     },
-
     {
       id: 3,
-      image:
+      images: [
         'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+        'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+        'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+      ],
       alt: 'Apartamento con Terraza a Pasos de la Playa',
       title: 'Apartamento con Terraza a Pasos de la Playa',
       description:
@@ -48,11 +55,13 @@ export const ListCard = () => {
       size: '120m',
       maxGuests: 4,
     },
-
     {
       id: 4,
-      image:
+      images: [
         'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+        'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+        'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+      ],
       alt: 'Apartamento con Terraza a Pasos de la Playa',
       title: 'Apartamento con Terraza a Pasos de la Playa',
       description:
@@ -63,11 +72,13 @@ export const ListCard = () => {
       size: '120m',
       maxGuests: 4,
     },
-
     {
       id: 5,
-      image:
+      images: [
         'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+        'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+        'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+      ],
       alt: 'Apartamento con Terraza a Pasos de la Playa',
       title: 'Apartamento con Terraza a Pasos de la Playa',
       description:
@@ -78,11 +89,13 @@ export const ListCard = () => {
       size: '120m',
       maxGuests: 4,
     },
-
     {
       id: 6,
-      image:
+      images: [
         'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+        'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+        'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+      ],
       alt: 'Apartamento con Terraza a Pasos de la Playa',
       title: 'Apartamento con Terraza a Pasos de la Playa',
       description:
@@ -93,11 +106,13 @@ export const ListCard = () => {
       size: '120m',
       maxGuests: 4,
     },
-
     {
       id: 7,
-      image:
+      images: [
         'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+        'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+        'https://multimedia.dygav.es/wp-content/uploads/2024/04/355456903_292879046549428_5070979686022284662_n_feauz6-1.jpg',
+      ],
       alt: 'Apartamento con Terraza a Pasos de la Playa',
       title: 'Apartamento con Terraza a Pasos de la Playa',
       description:
