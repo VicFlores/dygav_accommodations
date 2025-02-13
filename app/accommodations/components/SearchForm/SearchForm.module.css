@@ -30,7 +30,7 @@
 .input_group_icon {
   margin-right: 15px;
   color: #afafaf;
-  font-size: 32px;
+  font-size: 28px;
 }
 
 .input_container {
@@ -43,10 +43,11 @@
   border: none;
   color: #545454;
   text-align: left;
+  font-size: 15px;
 }
 
 .input_container label {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   color: #afafaf;
 }
@@ -68,5 +69,5 @@
 
 .search_button_icon {
   margin-right: 4px;
-  font-size: 24px;
+  font-size: 22px;
 }
