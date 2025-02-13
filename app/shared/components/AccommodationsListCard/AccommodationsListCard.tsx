@@ -60,6 +60,13 @@ export const AccommodationsListCard: FC<{
     };
   }, []);
 
+  const truncateDescription = (description: string, maxLength: number) => {
+    if (description.length > maxLength) {
+      return description.substring(0, maxLength) + '...';
+    }
+    return description;
+  };
+
   return (
     <div className={styles.wrapper}>
       <CiCircleChevLeft className={styles.leftArrow} onClick={scrollLeft} />
@@ -79,7 +86,7 @@ export const AccommodationsListCard: FC<{
             <h3 className={styles.cardTitle}>{accommodation.title}</h3>
 
             <p className={styles.cardDescription}>
-              {accommodation.description}
+              {truncateDescription(accommodation.description, 100)}
             </p>
 
             <p className={styles.cardPrice}>{accommodation.pricePerNight}</p>
