@@ -8,7 +8,7 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { ImagesCarousel } from '@/app/accommodations/components';
 import styles from './AccommodationsListCard.module.css';
 
-interface Accommodation {
+interface AccommodationsListCardProps {
   id: number;
   images: string[];
   alt: string;
@@ -21,13 +21,9 @@ interface Accommodation {
   maxGuests: number;
 }
 
-interface AccommodationsListCardProps {
-  accommodations: Accommodation[];
-}
-
-export const AccommodationsListCard: FC<AccommodationsListCardProps> = ({
-  accommodations,
-}) => {
+export const AccommodationsListCard: FC<{
+  accommodations: AccommodationsListCardProps[];
+}> = ({ accommodations }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const scrollLeft = () => {
