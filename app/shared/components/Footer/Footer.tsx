@@ -85,7 +85,7 @@ export const Footer = () => {
           </p>
 
           <p className={styles.infoLegend}>
-            © 2021 Dygav. Todos los derechos reservados.
+            © 2025 Dygav. Todos los derechos reservados.
           </p>
         </div>
 
