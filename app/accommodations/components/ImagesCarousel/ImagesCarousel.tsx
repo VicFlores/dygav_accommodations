@@ -31,13 +31,17 @@ export const ImagesCarousel: FC<{ images: string[]; alt: string }> = ({
       <MdOutlineKeyboardArrowLeft
         className={styles.carouselArrow}
         onClick={handlePrev}
+        role='button'
+        aria-label='previous'
       />
 
-      <Image src={images[currentIndex]} alt={alt} layout='fill' />
+      <Image src={images[currentIndex]} alt={alt} fill />
 
       <MdOutlineKeyboardArrowRight
         className={styles.carouselArrow}
         onClick={handleNext}
+        role='button'
+        aria-label='next'
       />
     </div>
   );
