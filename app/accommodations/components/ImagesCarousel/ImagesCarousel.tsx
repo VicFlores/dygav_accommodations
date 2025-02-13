@@ -43,6 +43,17 @@ export const ImagesCarousel: FC<{ images: string[]; alt: string }> = ({
         role='button'
         aria-label='next'
       />
+
+      <div className={styles.indicator}>
+        {images.map((_, index) => (
+          <div
+            key={index}
+            className={`${styles.indicatorDot} ${
+              index === currentIndex ? styles.active : ''
+            }`}
+          />
+        ))}
+      </div>
     </div>
   );
 };

@@ -22,3 +22,23 @@
 .carouselArrow:last-of-type {
   right: 0.1px;
 }
+
+.indicator {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+}
+
+.indicatorDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+}
+
+.indicatorDot.active {
+  background-color: #f4511e;
+}
