@@ -5,9 +5,11 @@
   height: 90vh;
   background-image: url('https://multimedia.dygav.es/wp-content/uploads/2024/04/13_qih5tu.png');
   background-size: cover;
+  background-attachment: fixed; /* Add this line for parallax effect */
+  background-position: center;
   padding: 0 40px;
   color: white;
-  position: relative; /* Add this line */
+  position: relative;
 }
 
 .title {
