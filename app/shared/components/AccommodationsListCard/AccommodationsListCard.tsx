@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, useRef } from 'react';
+import React, { FC, useRef, useEffect } from 'react';
 import { PiBedLight, PiToiletLight, PiPencilRuler } from 'react-icons/pi';
 import { GoPeople } from 'react-icons/go';
 import { CiCircleChevLeft, CiCircleChevRight } from 'react-icons/ci';
@@ -41,6 +41,28 @@ export const AccommodationsListCard: FC<AccommodationsListCardProps> = ({
       containerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
     }
   };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.visible);
+          } else {
+            entry.target.classList.remove(styles.visible);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const cards = document.querySelectorAll(`.${styles.card}`);
+    cards.forEach((card) => observer.observe(card));
+
+    return () => {
+      cards.forEach((card) => observer.unobserve(card));
+    };
+  }, []);
 
   return (
     <div className={styles.wrapper}>
