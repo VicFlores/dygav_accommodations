@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import React from 'react';
-import { Hero, Navbar } from '../shared';
+import { Footer, Hero, Navbar } from '../shared';
 import { ListCard } from './components';
 import { SearchForm } from './components/SearchForm/SearchForm';
 
@@ -23,6 +23,8 @@ const AccommodationsPage = () => {
       </Hero>
 
       <ListCard />
+
+      <Footer />
     </>
   );
 };

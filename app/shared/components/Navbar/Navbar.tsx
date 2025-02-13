@@ -10,7 +10,7 @@ export const Navbar = () => {
         <Image
           src='https://res.cloudinary.com/dc69f3e0o/image/upload/v1732543341/dygav-proyect/rpndofyybjaxzrlswtls.png'
           alt='Logo de Dygav'
-          layout='fill'
+          fill
         />
       </figure>
 
