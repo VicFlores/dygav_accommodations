@@ -25,16 +25,18 @@ export const AccommodationsListCard: FC<{
   accommodations: AccommodationsListCardProps[];
 }> = ({ accommodations }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  let startX: number;
+  let scrollLeft: number;
 
-  const scrollLeft = () => {
+  const scrollLeftHandler = () => {
     if (containerRef.current) {
-      containerRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+      containerRef.current.scrollBy({ left: -200, behavior: 'smooth' });
     }
   };
 
-  const scrollRight = () => {
+  const scrollRightHandler = () => {
     if (containerRef.current) {
-      containerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+      containerRef.current.scrollBy({ left: 200, behavior: 'smooth' });
     }
   };
 
@@ -67,11 +69,34 @@ export const AccommodationsListCard: FC<{
     return description;
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (containerRef.current) {
+      startX = e.touches[0].pageX - containerRef.current.offsetLeft;
+      scrollLeft = containerRef.current.scrollLeft;
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (containerRef.current) {
+      const x = e.touches[0].pageX - containerRef.current.offsetLeft;
+      const walk = (x - startX) * 1; // scroll-fast
+      containerRef.current.scrollLeft = scrollLeft - walk;
+    }
+  };
+
   return (
     <div className={styles.wrapper}>
-      <CiCircleChevLeft className={styles.leftArrow} onClick={scrollLeft} />
+      <CiCircleChevLeft
+        className={styles.leftArrow}
+        onClick={scrollLeftHandler}
+      />
 
-      <div className={styles.container} ref={containerRef}>
+      <div
+        className={styles.container}
+        ref={containerRef}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+      >
         {accommodations.map((accommodation) => (
           <div key={accommodation.id} className={styles.card}>
             <figure className={styles.imageContainer}>
@@ -116,7 +141,10 @@ export const AccommodationsListCard: FC<{
         ))}
       </div>
 
-      <CiCircleChevRight className={styles.rightArrow} onClick={scrollRight} />
+      <CiCircleChevRight
+        className={styles.rightArrow}
+        onClick={scrollRightHandler}
+      />
     </div>
   );
 };
