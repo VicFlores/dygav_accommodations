@@ -23,7 +23,7 @@ export const SearchForm = () => {
         <div className={styles.input_container}>
           <select id='city' defaultValue=''>
             <option value='' disabled>
-              Cuidad
+              Seleccione una ciudad
             </option>
             <option value='ciudad1'>Ciudad 1</option>
             <option value='ciudad2'>Ciudad 2</option>
@@ -42,7 +42,7 @@ export const SearchForm = () => {
             type='text'
             value={
               dateRange.startDate && dateRange.endDate
-                ? `${dateRange.startDate} - ${dateRange.endDate}`
+                ? `${dateRange.startDate} / ${dateRange.endDate}`
                 : 'Checkin - Checkout'
             }
             onFocus={() => setShowCalendar(true)}
