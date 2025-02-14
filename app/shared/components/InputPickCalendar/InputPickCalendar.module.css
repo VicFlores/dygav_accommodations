@@ -80,6 +80,7 @@
     width: 90%; /* Add this line */
     left: 22px; /* Ensure this line is present */
     transform: translateY(-10px); /* Ensure this line is present */
+    padding: 10px; /* Ensure this line is present */
   }
 
   .header span {

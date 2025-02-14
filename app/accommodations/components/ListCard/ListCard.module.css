@@ -17,3 +17,23 @@
   padding-left: 0.5rem;
   color: #4d4d4d;
 }
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+}
