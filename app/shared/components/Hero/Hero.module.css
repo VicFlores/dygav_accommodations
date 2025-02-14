@@ -39,7 +39,7 @@
 
 @media screen and (max-width: 425px) {
   .container {
-    height: 95dvh;
+    height: calc(95vh - -30px);
   }
 
   .title {
