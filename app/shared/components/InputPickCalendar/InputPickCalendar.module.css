@@ -74,3 +74,39 @@
 .closeButton svg {
   font-size: 24px;
 }
+
+@media screen and (max-width: 425px) {
+  .calendarContainer {
+    width: 90%; /* Add this line */
+    left: 22px; /* Ensure this line is present */
+    transform: translateY(-10px); /* Ensure this line is present */
+  }
+
+  .header span {
+    font-size: 14px;
+  }
+
+  .day {
+    padding: 8px;
+  }
+
+  .closeButton svg {
+    font-size: 22px;
+  }
+
+  .arrowContainer button {
+    font-size: 16px;
+  }
+
+  .dayName {
+    font-size: 14px;
+  }
+
+  .day {
+    font-size: 14px;
+  }
+
+  .calendar {
+    gap: 3px;
+  }
+}
