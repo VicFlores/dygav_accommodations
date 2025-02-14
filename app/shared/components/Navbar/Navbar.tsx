@@ -1,9 +1,19 @@
+'use client';
+
+import React, { useState } from 'react';
 import Image from 'next/image';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { IoMdClose } from 'react-icons/io';
 import Link from 'next/link';
-import React from 'react';
 import styles from './Navbar.module.css';
 
 export const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <nav className={styles.navigationContainer}>
       <figure>
@@ -14,7 +24,18 @@ export const Navbar = () => {
         />
       </figure>
 
-      <ul>
+      <div
+        className={`${styles.burgerMenu} ${isMenuOpen ? styles.open : ''}`}
+        onClick={toggleMenu}
+      >
+        {isMenuOpen ? (
+          <IoMdClose className={styles.burgerMenu_icon} />
+        ) : (
+          <GiHamburgerMenu className={styles.burgerMenu_icon} />
+        )}
+      </div>
+
+      <ul className={`${styles.navLinks} ${isMenuOpen ? styles.showMenu : ''}`}>
         <li>
           <Link href='#'>Viaja</Link>
         </li>
