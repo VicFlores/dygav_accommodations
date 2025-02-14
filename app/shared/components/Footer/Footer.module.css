@@ -185,7 +185,9 @@
 
 @media screen and (max-width: 425px) {
   .platforms {
-    height: 50vh;
+    height: auto;
+    padding: 1rem 0;
+    background-attachment: scroll;
   }
 
   .title {
