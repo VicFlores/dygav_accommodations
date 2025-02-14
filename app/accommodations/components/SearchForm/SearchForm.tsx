@@ -1,11 +1,20 @@
-import React from 'react';
-import { PiCity } from 'react-icons/pi';
-import { PiCalendarDuotone } from 'react-icons/pi';
-import { PiUsersThree } from 'react-icons/pi';
+'use client';
+
+import React, { useState } from 'react';
+import { PiCity, PiCalendarDuotone, PiUsersThree } from 'react-icons/pi';
 import { CiSearch } from 'react-icons/ci';
+import { InputPickCalendar } from '@/app/shared';
 import styles from './SearchForm.module.css';
 
 export const SearchForm = () => {
+  const [dateRange, setDateRange] = useState({ startDate: '', endDate: '' });
+  const [showCalendar, setShowCalendar] = useState(false);
+
+  const handleDateRangeSelect = (startDate: string, endDate: string) => {
+    setDateRange({ startDate, endDate });
+    setShowCalendar(false);
+  };
+
   return (
     <form className={styles.search_form}>
       <div className={styles.input_group}>
@@ -28,8 +37,21 @@ export const SearchForm = () => {
         <PiCalendarDuotone className={styles.input_group_icon} />
 
         <div className={styles.input_container}>
-          <input id='date' type='date' />
+          <input
+            id='date'
+            type='text'
+            value={
+              dateRange.startDate && dateRange.endDate
+                ? `${dateRange.startDate} - ${dateRange.endDate}`
+                : 'Checkin - Checkout'
+            }
+            onFocus={() => setShowCalendar(true)}
+            readOnly
+          />
           <label htmlFor='date'>Fecha de reserva</label>
+          {showCalendar && (
+            <InputPickCalendar onDateRangeSelect={handleDateRangeSelect} />
+          )}
         </div>
       </div>
 
