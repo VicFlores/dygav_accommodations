@@ -22,3 +22,33 @@
   font-weight: 400;
   margin-bottom: 10px;
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    height: 70vh;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .container {
+    height: 95dvh;
+  }
+
+  .title {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}

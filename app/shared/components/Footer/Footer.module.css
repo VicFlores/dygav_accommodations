@@ -105,3 +105,144 @@
   font-size: 0.8rem;
   margin-bottom: 0.5rem;
 }
+
+.quickLinks div ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.quickLinks div ul li a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 1.9rem;
+  }
+
+  .platforms {
+    height: 40vh;
+  }
+
+  .platforms_icons {
+    width: 80%;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .image_container {
+    width: 130px;
+    height: 60px;
+  }
+
+  .image_container:nth-child(2) {
+    width: 110px;
+    height: 95px;
+  }
+
+  .image_container:nth-child(4) {
+    width: 110px;
+    height: 95px;
+  }
+
+  .image_container:last-child {
+    width: 160px;
+    height: 130px;
+  }
+
+  .information_container {
+    padding: 1rem 1rem;
+  }
+
+  .dygav_icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social_media svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .infoLegend {
+    font-size: 0.7rem;
+  }
+
+  .quickLinks div ul {
+    margin-left: 1rem;
+  }
+
+  .quickLinks div h5 {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .quickLinks div ul li,
+  .quickLinks div p {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .platforms {
+    height: 50vh;
+  }
+
+  .title {
+    font-size: 1.4rem;
+    text-wrap: balance;
+    text-align: center;
+  }
+
+  .platforms_icons {
+    width: 90%;
+  }
+
+  .image_container {
+    width: 100px;
+    height: 50px;
+  }
+
+  .image_container:nth-child(2) {
+    width: 90px;
+    height: 80px;
+  }
+
+  .image_container:nth-child(4) {
+    width: 90px;
+    height: 80px;
+  }
+
+  .information_container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .information_container div figure {
+    margin: auto;
+  }
+
+  .information_container div {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dygav_icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .social_media {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .social_media svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .quickLinks div ul {
+    margin-left: 0;
+  }
+}

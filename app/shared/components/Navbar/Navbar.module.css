@@ -57,3 +57,17 @@
 .navigationContainer ul li:nth-child(5) a {
   color: #f4511e;
 }
+
+@media screen and (max-width: 425px) {
+  .navigationContainer {
+    padding: 0 10px;
+  }
+
+  .navigationContainer ul li {
+    margin: 0 5px;
+  }
+
+  .navigationContainer ul li:nth-child(5) {
+    padding: 4px 8px;
+  }
+}

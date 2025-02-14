@@ -131,3 +131,97 @@
 .card_amenities_icon {
   font-size: 26px;
 }
+
+@media screen and (max-width: 768px) {
+  .card {
+    min-width: 300px;
+  }
+
+  .cardTitle {
+    font-size: 1rem;
+  }
+
+  .cardDescription {
+    font-size: 12px;
+  }
+
+  .cardPrice {
+    font-size: 12px;
+  }
+
+  .card_amenities {
+    height: 45px;
+  }
+
+  .card_amenities_item {
+    gap: 3px;
+  }
+
+  .card_amenities_icon {
+    font-size: 22px;
+  }
+
+  .leftArrow,
+  .rightArrow {
+    font-size: 2.4rem;
+  }
+
+  .imageContainer img {
+    height: 200px;
+  }
+
+  .heartIcon {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .card {
+    min-width: 280px;
+  }
+
+  .cardTitle {
+    font-size: 0.9rem;
+  }
+
+  .cardDescription {
+    font-size: 10px;
+  }
+
+  .cardPrice {
+    font-size: 10px;
+  }
+
+  .card_amenities {
+    height: 40px;
+  }
+
+  .card_amenities_item {
+    gap: 2px;
+  }
+
+  .card_amenities_icon {
+    font-size: 18px;
+  }
+
+  .leftArrow,
+  .rightArrow {
+    font-size: 2rem;
+  }
+
+  .imageContainer img {
+    height: 180px;
+  }
+
+  .heartIcon {
+    font-size: 1.2rem;
+  }
+
+  .wrapper {
+    margin-bottom: 20px;
+  }
+
+  .container {
+    gap: 10px;
+  }
+}

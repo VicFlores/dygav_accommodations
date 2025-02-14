@@ -6,6 +6,7 @@ import {
   IoLogoWhatsapp,
 } from 'react-icons/io5';
 import styles from './Footer.module.css';
+import Link from 'next/link';
 
 export const Footer = () => {
   return (
@@ -94,9 +95,15 @@ export const Footer = () => {
             <h5>Enlaces de utiles</h5>
 
             <ul>
-              <li>Inciar sesión</li>
-              <li>Registrarse</li>
-              <li>Blog</li>
+              <li>
+                <Link href={'/accommodations'}>Inciar sesión</Link>
+              </li>
+              <li>
+                <Link href={'/accommodations'}>Registrarse</Link>
+              </li>
+              <li>
+                <Link href={'/accommodations'}>Blog</Link>
+              </li>
             </ul>
           </div>
 
@@ -104,10 +111,18 @@ export const Footer = () => {
             <h5>Políticas</h5>
 
             <ul>
-              <li>Privacidad</li>
-              <li>Cookies</li>
-              <li>Formularios</li>
-              <li>Aviso Legal</li>
+              <li>
+                <Link href={'/accommodations'}>Privacidad</Link>
+              </li>
+              <li>
+                <Link href={'/accommodations'}>Cookies</Link>
+              </li>
+              <li>
+                <Link href={'/accommodations'}>Formularios</Link>
+              </li>
+              <li>
+                <Link href={'/accommodations'}>Aviso Legal</Link>
+              </li>
             </ul>
           </div>
 
