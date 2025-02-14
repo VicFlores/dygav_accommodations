@@ -1,19 +1,27 @@
 'use client';
 
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
+import { IoIosArrowBack, IoIosArrowForward, IoIosClose } from 'react-icons/io';
 import styles from './InputPickCalendar.module.css';
 
 interface CustomCalendarProps {
   onDateRangeSelect: (startDate: string, endDate: string) => void;
+  onClose: () => void;
 }
 
 export const InputPickCalendar: FC<CustomCalendarProps> = ({
   onDateRangeSelect,
+  onClose,
 }) => {
   const [startDate, setStartDate] = useState<string | null>(null);
   const [endDate, setEndDate] = useState<string | null>(null);
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    setShow(true);
+  }, []);
 
   const handleDateClick = (date: string) => {
     if (!startDate || (startDate && endDate)) {
@@ -95,11 +103,23 @@ export const InputPickCalendar: FC<CustomCalendarProps> = ({
   );
 
   return (
-    <div className={styles.calendarContainer}>
+    <div className={`${styles.calendarContainer} ${show ? styles.show : ''}`}>
       <div className={styles.header}>
-        <button onClick={handlePrevMonth}>&lt;</button>
         <span>{monthYearString}</span>
-        <button onClick={handleNextMonth}>&gt;</button>
+
+        <div className={styles.arrowContainer}>
+          <button onClick={handlePrevMonth}>
+            <IoIosArrowBack />
+          </button>
+
+          <button onClick={handleNextMonth}>
+            <IoIosArrowForward />
+          </button>
+
+          <button onClick={onClose} className={styles.closeButton}>
+            <IoIosClose />
+          </button>
+        </div>
       </div>
       {renderCalendar()}
     </div>

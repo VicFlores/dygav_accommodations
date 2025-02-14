@@ -43,6 +43,7 @@
   color: #545454;
   text-align: left;
   font-size: 15px;
+  outline: none;
 }
 
 .input_container input[type='text'] {

@@ -50,7 +50,10 @@ export const SearchForm = () => {
           />
           <label htmlFor='date'>Fecha de reserva</label>
           {showCalendar && (
-            <InputPickCalendar onDateRangeSelect={handleDateRangeSelect} />
+            <InputPickCalendar
+              onDateRangeSelect={handleDateRangeSelect}
+              onClose={() => setShowCalendar(false)} // Add this line
+            />
           )}
         </div>
       </div>
