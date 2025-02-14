@@ -103,6 +103,7 @@
   .input_container select {
     font-size: 15px;
     width: 100%;
+    background-color: white;
   }
 
   .input_group:nth-child(1),
