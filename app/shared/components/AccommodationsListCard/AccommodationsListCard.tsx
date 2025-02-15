@@ -1,12 +1,13 @@
 'use client';
 
-import React, { FC, useRef, useEffect } from 'react';
+import React, { FC } from 'react';
 import { PiBedLight, PiToiletLight, PiPencilRuler } from 'react-icons/pi';
 import { GoPeople } from 'react-icons/go';
 import { CiCircleChevLeft, CiCircleChevRight } from 'react-icons/ci';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { ImagesCarousel } from '@/app/accommodations/components';
 import styles from './AccommodationsListCard.module.css';
+import { useAccommodationsListCard } from '../../hooks';
 
 interface AccommodationsListCardProps {
   id: number;
@@ -24,64 +25,19 @@ interface AccommodationsListCardProps {
 export const AccommodationsListCard: FC<{
   accommodations: AccommodationsListCardProps[];
 }> = ({ accommodations }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  let startX: number;
-  let scrollLeft: number;
-
-  const scrollLeftHandler = () => {
-    if (containerRef.current) {
-      containerRef.current.scrollBy({ left: -200, behavior: 'smooth' });
-    }
-  };
-
-  const scrollRightHandler = () => {
-    if (containerRef.current) {
-      containerRef.current.scrollBy({ left: 200, behavior: 'smooth' });
-    }
-  };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(styles.visible);
-          } else {
-            entry.target.classList.remove(styles.visible);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const cards = document.querySelectorAll(`.${styles.card}`);
-    cards.forEach((card) => observer.observe(card));
-
-    return () => {
-      cards.forEach((card) => observer.unobserve(card));
-    };
-  }, []);
+  const {
+    containerRef,
+    scrollLeftHandler,
+    scrollRightHandler,
+    handleTouchStart,
+    handleTouchMove,
+  } = useAccommodationsListCard(styles);
 
   const truncateDescription = (description: string, maxLength: number) => {
     if (description.length > maxLength) {
       return description.substring(0, maxLength) + '...';
     }
     return description;
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    if (containerRef.current) {
-      startX = e.touches[0].pageX - containerRef.current.offsetLeft;
-      scrollLeft = containerRef.current.scrollLeft;
-    }
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (containerRef.current) {
-      const x = e.touches[0].pageX - containerRef.current.offsetLeft;
-      const walk = (x - startX) * 1; // scroll-fast
-      containerRef.current.scrollLeft = scrollLeft - walk;
-    }
   };
 
   return (
