@@ -1,0 +1,84 @@
+.container {
+  padding: 0 20px 1rem;
+  margin-top: 20px;
+}
+
+.title {
+  font-size: 2.1rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+  color: #4d4d4d;
+}
+
+.subtitle {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+  color: #4d4d4d;
+  text-wrap: balance;
+}
+
+.paragraph {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+  color: #4d4d4d;
+}
+
+.galleryContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 520px;
+}
+
+.imageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 10px;
+}
+
+.commingImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+  gap: 1.2rem;
+}
+
+.commingImageContainer svg {
+  font-size: 2rem;
+  color: #4d4d4d;
+  cursor: pointer;
+}
+
+.commingImage {
+  position: relative;
+  width: 240px;
+  height: 150px;
+  cursor: pointer;
+}
+
+.commingImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 10px;
+}
+
+.commingImage.active {
+  border: 3px solid #f4511e;
+  border-radius: 10px;
+}
