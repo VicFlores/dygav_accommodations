@@ -1,6 +1,13 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import {
+  PiCalendarDuotone,
+  PiHouseLine,
+  PiTrash,
+  PiCreditCard,
+} from 'react-icons/pi';
+import { PiCurrencyEur } from 'react-icons/pi';
 import styles from './AvailabilityCalendar.module.css';
 
 const generateDayNames = () => {
@@ -201,6 +208,65 @@ export const AvailabilityCalendar = () => {
             </div>
           );
         })}
+      </div>
+
+      <div className={styles.rates}>
+        <div className={styles.rate_item}>
+          <PiCalendarDuotone />
+
+          <div>
+            <h3>Check-In</h3>
+
+            <p>
+              {startDate ? startDate.toDateString() : 'Fecha no seleccionada'}
+            </p>
+          </div>
+        </div>
+
+        <div className={styles.rate_item}>
+          <PiCalendarDuotone />
+
+          <div>
+            <h3>Check-Out</h3>
+
+            <p>{endDate ? endDate.toDateString() : 'Fecha no seleccionada'}</p>
+          </div>
+        </div>
+
+        <div className={styles.rate_item}>
+          <PiHouseLine />
+
+          <div>
+            <h3>Estancia</h3>
+
+            <p>45.56Є</p>
+          </div>
+        </div>
+
+        <div className={styles.rate_item}>
+          <PiTrash />
+
+          <div>
+            <h3>Limpieza</h3>
+
+            <p>45.56Є</p>
+          </div>
+        </div>
+
+        <div className={styles.rate_item}>
+          <PiCurrencyEur />
+
+          <div>
+            <h3>Total a pagar</h3>
+
+            <p>45.56Є</p>
+          </div>
+        </div>
+
+        <button>
+          <PiCreditCard />
+          <span>Pagar alojamiento</span>
+        </button>
       </div>
     </div>
   );

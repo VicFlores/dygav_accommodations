@@ -124,3 +124,64 @@
 .selectedDates p {
   margin-bottom: 10px;
 }
+
+.rates {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+  margin: 2rem 0;
+  border: 1px solid #afafaf;
+  border-radius: 10px;
+}
+
+.rates button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: #f4511e;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.rates button:hover {
+  background-color: #e53611;
+}
+
+.rates button svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.rate_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid #afafaf;
+  gap: 1rem;
+}
+
+.rate_item svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  color: #afafaf;
+}
+
+.rate_item div h3 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #545454;
+}
+
+.rate_item div p {
+  font-size: 1rem;
+
+  color: #afafaf;
+}
