@@ -2,7 +2,6 @@
 
 import React, { FC } from 'react';
 import { IoIosArrowBack, IoIosArrowForward, IoIosClose } from 'react-icons/io';
-
 import styles from './InputPickCalendar.module.css';
 import { useCalendar } from '../../hooks';
 
