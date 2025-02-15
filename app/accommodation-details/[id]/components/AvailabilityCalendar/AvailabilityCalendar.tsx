@@ -49,10 +49,16 @@ const reservations = [
   { startDate: new Date('2025-02-25'), endDate: new Date('2025-02-28') },
 ];
 
+const normalizeDate = (date: Date) => {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+};
+
 const isReserved = (date: Date) => {
+  const normalizedDate = normalizeDate(date);
   return reservations.some(
     (reservation) =>
-      date >= reservation.startDate && date <= reservation.endDate
+      normalizedDate >= normalizeDate(reservation.startDate) &&
+      normalizedDate <= normalizeDate(reservation.endDate)
   );
 };
 
@@ -113,6 +119,24 @@ export const AvailabilityCalendar = () => {
 
   const isLastInRange = (date: Date) => {
     return endDate && date.getTime() === endDate.getTime();
+  };
+
+  const isFirstReserved = (date: Date) => {
+    const normalizedDate = normalizeDate(date);
+    return reservations.some(
+      (reservation) =>
+        normalizeDate(reservation.startDate).getTime() ===
+        normalizedDate.getTime()
+    );
+  };
+
+  const isLastReserved = (date: Date) => {
+    const normalizedDate = normalizeDate(date);
+    return reservations.some(
+      (reservation) =>
+        normalizeDate(reservation.endDate).getTime() ===
+        normalizedDate.getTime()
+    );
   };
 
   const handlePrevMonth = () => {
@@ -185,6 +209,7 @@ export const AvailabilityCalendar = () => {
                     {day}
                   </div>
                 ))}
+
                 {generateDates(
                   monthDate.getFullYear(),
                   monthDate.getMonth()
@@ -197,7 +222,11 @@ export const AvailabilityCalendar = () => {
                       date && isFirstInRange(date) ? styles.firstInRange : ''
                     } ${
                       date && isLastInRange(date) ? styles.lastInRange : ''
-                    } ${date && isReserved(date) ? styles.reserved : ''}`}
+                    } ${date && isReserved(date) ? styles.reserved : ''} ${
+                      date && isFirstReserved(date) ? styles.firstReserved : ''
+                    } ${
+                      date && isLastReserved(date) ? styles.lastReserved : ''
+                    }`}
                     onClick={() => date && handleDateClick(date)}
                     onMouseEnter={() => date && setHoverDate(date)}
                   >

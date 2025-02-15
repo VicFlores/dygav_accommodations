@@ -99,6 +99,14 @@
   cursor: not-allowed;
 }
 
+.firstReserved {
+  border-radius: 10px 0 0 10px; /* Add border radius to the first reserved cell */
+}
+
+.lastReserved {
+  border-radius: 0 10px 10px 0; /* Add border radius to the last reserved cell */
+}
+
 .errorMessage {
   color: red;
   margin-bottom: 20px;
