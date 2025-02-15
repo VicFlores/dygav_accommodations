@@ -1,6 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { PhotoGallery } from './components';
+import { AvailabilityCalendar, PhotoGallery } from './components';
 import { Footer, Hero, Navbar } from '@/app/shared';
 
 export const metadata: Metadata = {
@@ -20,6 +20,8 @@ const AccommodationDDetailPage = () => {
       />
 
       <PhotoGallery />
+
+      <AvailabilityCalendar />
 
       <Footer />
     </>

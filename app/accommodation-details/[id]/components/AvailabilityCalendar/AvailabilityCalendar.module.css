@@ -1,0 +1,125 @@
+.calendarContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.calendarTitle {
+  margin: 30px 0;
+}
+
+.navigationButtons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.navButton {
+  padding: 10px 20px;
+  background-color: #e53611;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.navButton:hover {
+  background-color: #f4511e;
+}
+
+.calendarWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.calendarMonth {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+}
+
+.monthHeader {
+  color: #737373;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 10px;
+  width: 100%;
+  color: #444444;
+}
+
+.dayName {
+  text-align: center;
+}
+
+.calendarCell {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.calendarCell:hover {
+  background-color: #f4511e;
+  color: white;
+}
+
+.inRange {
+  background-color: #e53611;
+  color: white;
+  border-left: none; /* Remove left border for in-range cells */
+  border-right: none; /* Remove right border for in-range cells */
+}
+
+.firstInRange {
+  border-radius: 10px 0 0 10px; /* Add border radius to the first in-range cell */
+}
+
+.lastInRange {
+  border-radius: 0 10px 10px 0; /* Add border radius to the last in-range cell */
+}
+
+.reserved {
+  background-color: #faa477;
+  cursor: not-allowed;
+}
+
+.errorMessage {
+  color: red;
+  margin-bottom: 20px;
+}
+
+.submitButton {
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: #e53611;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #f4511e;
+}
+
+.selectedDates {
+  margin-top: 30px;
+}
+
+.selectedDates p {
+  margin-bottom: 10px;
+}
