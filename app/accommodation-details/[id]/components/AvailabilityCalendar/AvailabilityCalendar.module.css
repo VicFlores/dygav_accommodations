@@ -66,11 +66,12 @@
 }
 
 .calendarCell {
-  height: 40px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  font-size: 0.9rem;
 }
 
 .calendarCell:hover {
