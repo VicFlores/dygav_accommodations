@@ -79,6 +79,10 @@
   color: white;
 }
 
+.disabled {
+  cursor: not-allowed;
+}
+
 .inRange {
   background-color: #e53611;
   color: white;

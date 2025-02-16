@@ -26,6 +26,8 @@ const generateDates = (year: number, month: number) => {
   const prevMonth = month === 0 ? 11 : month - 1;
   const prevMonthYear = month === 0 ? year - 1 : year;
   const prevMonthDays = new Date(prevMonthYear, prevMonth + 1, 0).getDate();
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // Normalize today's date to remove time part
 
   for (let i = firstDay - 1; i >= 0; i--) {
     dates.push(new Date(prevMonthYear, prevMonth, prevMonthDays - i));
@@ -36,7 +38,11 @@ const generateDates = (year: number, month: number) => {
     dates.push(new Date(date));
     date.setDate(date.getDate() + 1);
   }
-  return dates;
+
+  return dates.map((date) => ({
+    date,
+    isDisabled: date < today,
+  }));
 };
 
 const getMonthName = (month: number) => {
@@ -89,6 +95,14 @@ export const AvailabilityCalendar = () => {
   }, []);
 
   const handleDateClick = (date: Date) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Normalize today's date to remove time part
+
+    if (date < today) {
+      setErrorMessage('No puedes seleccionar una fecha anterior a la actual');
+      return;
+    }
+
     if (isReserved(date)) return;
     if (!startDate || (startDate && endDate)) {
       setStartDate(date);
@@ -209,11 +223,10 @@ export const AvailabilityCalendar = () => {
                     {day}
                   </div>
                 ))}
-
                 {generateDates(
                   monthDate.getFullYear(),
                   monthDate.getMonth()
-                ).map((date, index) => (
+                ).map(({ date, isDisabled }, index) => (
                   <div
                     key={index}
                     className={`${styles.calendarCell} ${
@@ -226,9 +239,11 @@ export const AvailabilityCalendar = () => {
                       date && isFirstReserved(date) ? styles.firstReserved : ''
                     } ${
                       date && isLastReserved(date) ? styles.lastReserved : ''
-                    }`}
-                    onClick={() => date && handleDateClick(date)}
-                    onMouseEnter={() => date && setHoverDate(date)}
+                    } ${isDisabled ? styles.disabled : ''}`}
+                    onClick={() => !isDisabled && date && handleDateClick(date)}
+                    onMouseEnter={() =>
+                      !isDisabled && date && setHoverDate(date)
+                    }
                   >
                     {date ? date.getDate() : ''}
                   </div>
