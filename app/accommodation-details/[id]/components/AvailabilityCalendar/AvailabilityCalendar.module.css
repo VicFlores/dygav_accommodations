@@ -240,3 +240,64 @@
     text-wrap: balance;
   }
 }
+
+@media screen and (max-width: 425px) {
+  .calendarContainer {
+    padding: 10px;
+  }
+
+  .calendarWrapper {
+    flex-direction: column;
+    row-gap: 35px;
+  }
+
+  .calendarGrid {
+    row-gap: 5px;
+  }
+
+  .monthHeader {
+    font-size: 1rem;
+  }
+
+  .dayName {
+    font-size: 0.8rem;
+  }
+
+  .calendarCell {
+    height: 30px;
+    font-size: 0.8rem;
+  }
+
+  .rates {
+    height: auto;
+    flex-direction: column;
+    border: none;
+    padding: 1rem 0;
+  }
+
+  .rates button {
+    font-size: 0.7rem;
+    height: 3rem;
+    width: 60%;
+  }
+
+  .rate_item {
+    border: 1px solid #afafaf;
+    width: 60%;
+    height: 4rem;
+    gap: 0.6rem;
+  }
+
+  .rate_item svg {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  .rate_item div h3 {
+    font-size: 0.9rem;
+  }
+
+  .rate_item div p {
+    font-size: 0.8rem;
+  }
+}
