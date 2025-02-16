@@ -1,1 +1,1 @@
-export * from './AvailabilityCalendar';
+export * from './useAvailabilityCalendar';
