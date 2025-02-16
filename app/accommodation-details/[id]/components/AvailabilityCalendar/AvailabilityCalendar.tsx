@@ -112,9 +112,7 @@ export const AvailabilityCalendar = () => {
           <div>
             <h3>Check-In</h3>
 
-            <p>
-              {startDate ? startDate.toDateString() : 'Fecha no seleccionada'}
-            </p>
+            <p>{startDate ? startDate.toDateString() : 'Fecha de entrada'}</p>
           </div>
         </div>
 
@@ -124,7 +122,7 @@ export const AvailabilityCalendar = () => {
           <div>
             <h3>Check-Out</h3>
 
-            <p>{endDate ? endDate.toDateString() : 'Fecha no seleccionada'}</p>
+            <p>{endDate ? endDate.toDateString() : 'Fecha de salida'}</p>
           </div>
         </div>
 

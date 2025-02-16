@@ -194,6 +194,49 @@
 
 .rate_item div p {
   font-size: 1rem;
-
   color: #afafaf;
+}
+
+@media screen and (max-width: 768px) {
+  .calendarWrapper {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .monthHeader {
+    font-size: 1rem;
+  }
+
+  .rates {
+    margin: 1rem 0;
+  }
+
+  .rates button {
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    text-wrap: balance;
+  }
+
+  .rates button svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .rate_item {
+    gap: 0.5rem;
+  }
+
+  .rate_item svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .rate_item div h3 {
+    font-size: 0.9rem;
+  }
+
+  .rate_item div p {
+    font-size: 0.8rem;
+    text-wrap: balance;
+  }
 }
