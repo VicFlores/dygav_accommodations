@@ -2,9 +2,13 @@ import { useState, useEffect } from 'react';
 
 const generateDayNames = () => {
   const days = [];
+  const baseDate = new Date(2025, 0, 5); // Start from Sunday
   for (let i = 0; i < 7; i++) {
     days.push(
-      new Date(2025, 0, i + 4).toLocaleString('default', { weekday: 'short' })
+      new Date(baseDate.getTime() + i * 24 * 60 * 60 * 1000).toLocaleString(
+        'default',
+        { weekday: 'short' }
+      )
     );
   }
   return days;
