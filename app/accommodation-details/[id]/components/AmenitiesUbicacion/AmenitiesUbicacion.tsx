@@ -184,6 +184,8 @@ export const AmenitiesUbicacion = () => {
             ))}
         </ul>
       )}
+
+      <h1 className={styles.title}>Ubicacion del alojamiento</h1>
     </section>
   );
 };

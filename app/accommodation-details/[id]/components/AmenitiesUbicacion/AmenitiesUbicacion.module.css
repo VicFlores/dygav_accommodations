@@ -17,12 +17,13 @@
 .amenties {
   display: flex;
   align-items: center;
+  gap: 3rem;
   padding: 0 0 0.5rem 0.5rem;
   overflow-x: scroll;
 }
 
 .amenties::-webkit-scrollbar {
-  height: 4px;
+  height: 5px;
   width: 5px;
 }
 
@@ -33,16 +34,16 @@
 .amenties::-webkit-scrollbar-thumb {
   background-color: #f4511e;
   border-radius: 5px;
-}
-
-.amenties:hover {
   cursor: pointer;
 }
 
 .amenties li {
   list-style: none;
   font-size: 1.1rem;
-  min-width: 156px;
+}
+
+.amenties li:hover {
+  cursor: pointer;
 }
 
 .amenities_service {
@@ -57,11 +58,74 @@
   list-style: none;
   display: flex;
   align-items: center;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .icon {
   margin-right: 0.5rem;
   color: #00b215;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin-top: 1rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .amenties {
+    gap: 2rem;
+  }
+
+  .amenties li {
+    font-size: 1rem;
+  }
+
+  .amenities_service {
+    margin: 1rem 0 4rem;
+    gap: 3rem;
+  }
+
+  .amenities_service li {
+    font-size: 0.9rem;
+  }
+
+  .icon {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .container {
+    margin-top: 0.5rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .amenties {
+    gap: 1.6rem;
+  }
+
+  .amenties li {
+    font-size: 0.9rem;
+  }
+
+  .amenities_service {
+    grid-template-columns: repeat(2, fit-content(90%));
+    margin: 1rem 0 2rem;
+    gap: 1.5rem;
+  }
+
+  .amenities_service li {
+    font-size: 0.8rem;
+  }
+
+  .icon {
+    font-size: 1rem;
+  }
 }
