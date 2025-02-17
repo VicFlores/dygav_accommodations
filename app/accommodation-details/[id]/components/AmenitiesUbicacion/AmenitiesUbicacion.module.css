@@ -1,0 +1,67 @@
+.container {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 2.1rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+  color: #4d4d4d;
+}
+
+.amenties {
+  display: flex;
+  align-items: center;
+  padding: 0 0 0.5rem 0.5rem;
+  overflow-x: scroll;
+}
+
+.amenties::-webkit-scrollbar {
+  height: 4px;
+  width: 5px;
+}
+
+.amenties::-webkit-scrollbar-track {
+  background-color: #afafaf;
+}
+
+.amenties::-webkit-scrollbar-thumb {
+  background-color: #f4511e;
+  border-radius: 5px;
+}
+
+.amenties:hover {
+  cursor: pointer;
+}
+
+.amenties li {
+  list-style: none;
+  font-size: 1.1rem;
+  min-width: 156px;
+}
+
+.amenities_service {
+  display: grid;
+  grid-template-columns: repeat(4, fit-content(90%));
+  padding-left: 0.5rem;
+  margin: 1rem 0 6rem;
+  gap: 5rem;
+}
+
+.amenities_service li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.icon {
+  margin-right: 0.5rem;
+  color: #00b215;
+  font-size: 1.2rem;
+}
