@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { MdOutlineCheckCircleOutline } from 'react-icons/md';
+import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
 import styles from './AmenitiesUbicacion.module.css';
 
 export const AmenitiesUbicacion = () => {
@@ -190,6 +191,26 @@ export const AmenitiesUbicacion = () => {
       )}
 
       <h1 className={styles.title}>Ubicacion del alojamiento</h1>
+
+      <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}>
+        <Map
+          className={styles.map}
+          defaultCenter={{
+            lat: 37.8167039,
+            lng: -0.7870929,
+          }} // Set the center of the map
+          defaultZoom={20} // Set zoom level to focus on the place
+          gestureHandling={'greedy'}
+          disableDefaultUI={true}
+        >
+          <Marker
+            position={{
+              lat: 37.8167039,
+              lng: -0.7870929,
+            }}
+          />
+        </Map>
+      </APIProvider>
     </section>
   );
 };
