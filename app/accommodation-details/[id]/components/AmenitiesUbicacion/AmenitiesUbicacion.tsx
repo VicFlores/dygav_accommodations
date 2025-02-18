@@ -177,7 +177,7 @@ export const AmenitiesUbicacion = () => {
       </ul>
 
       {selectedSection !== null && (
-        <ul className={styles.amenities_service}>
+        <ul className={styles.amenities_service} key={selectedSection}>
           {mockAmenities
             .find((section) => section.id === selectedSection)
             ?.items.map((item) => (

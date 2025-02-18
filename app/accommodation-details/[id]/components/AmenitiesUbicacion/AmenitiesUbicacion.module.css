@@ -52,6 +52,18 @@
   padding-left: 0.5rem;
   margin: 1rem 0 2rem;
   gap: 2rem;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .amenities_service li {
