@@ -51,7 +51,8 @@
   grid-template-columns: repeat(4, fit-content(90%));
   padding-left: 0.5rem;
   margin: 1rem 0 2rem;
-  gap: 2rem;
+  row-gap: 1.5rem;
+  column-gap: 2rem;
   animation: fadeIn 0.3s ease-in;
 }
 
