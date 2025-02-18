@@ -4,6 +4,7 @@ import {
   AmenitiesUbicacion,
   AvailabilityCalendar,
   PhotoGallery,
+  Recommendations,
 } from './components';
 import { Footer, Hero, Navbar } from '@/app/shared';
 
@@ -28,6 +29,8 @@ const AccommodationDDetailPage = () => {
       <AvailabilityCalendar />
 
       <AmenitiesUbicacion />
+
+      <Recommendations />
 
       <Footer />
     </>
