@@ -1,9 +1,13 @@
-import React from 'react';
+'use client';
+
+import React, { useRef } from 'react';
+import Image from 'next/image';
+import { CiCircleChevLeft, CiCircleChevRight } from 'react-icons/ci';
 import { AccommodationsListCard } from '@/app/shared';
 import styles from './Recommendations.module.css';
-import Image from 'next/image';
 
 export const Recommendations = () => {
+  const articlesContainerRef = useRef<HTMLDivElement>(null);
   const mockAccommodations = [
     {
       id: 1,
@@ -126,6 +130,21 @@ export const Recommendations = () => {
     },
   ];
 
+  const scrollLeft = () => {
+    if (articlesContainerRef.current) {
+      articlesContainerRef.current.scrollBy({
+        left: -300,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (articlesContainerRef.current) {
+      articlesContainerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className={styles.container}>
       <h1 className={styles.title}>Te recomendamos visitar tambien</h1>
@@ -134,81 +153,88 @@ export const Recommendations = () => {
 
       <h1 className={styles.title}>Conoce mas sobre torrevieja</h1>
 
-      <div className={styles.articlesContainer}>
-        <figure className={styles.article_image}>
-          <div className={styles.article_text}>
-            <p className={styles.article_category}>Ocio y entretenimiento</p>
+      <div className={styles.articlesContainerWrapper}>
+        <CiCircleChevLeft
+          className={styles.scrollButton}
+          onClick={scrollLeft}
+        />
 
-            <p className={styles.article_title}>
-              Conoce la tirolina más larga de España en Pirineos Aragoneses
-            </p>
-          </div>
-          <Image
-            src='https://multimedia.dygav.es/wp-content/uploads/2024/04/13_qih5tu.png'
-            alt='Torrevieja'
-            fill
-          />
-        </figure>
+        <div className={styles.articlesContainer} ref={articlesContainerRef}>
+          <figure className={styles.article_image}>
+            <div className={styles.article_text}>
+              <p className={styles.article_category}>Ocio y entretenimiento</p>
+              <p className={styles.article_title}>
+                Conoce la tirolina más larga de España en Pirineos Aragoneses
+              </p>
+            </div>
+            <Image
+              src='https://multimedia.dygav.es/wp-content/uploads/2024/04/13_qih5tu.png'
+              alt='Torrevieja'
+              fill
+            />
+          </figure>
 
-        <figure className={styles.article_image}>
-          <div className={styles.article_text}>
-            <p className={styles.article_category}>Ocio y entretenimiento</p>
+          <figure className={styles.article_image}>
+            <div className={styles.article_text}>
+              <p className={styles.article_category}>Ocio y entretenimiento</p>
+              <p className={styles.article_title}>
+                Conoce la tirolina más larga de España en Pirineos Aragoneses
+              </p>
+            </div>
+            <Image
+              src='https://multimedia.dygav.es/wp-content/uploads/2024/04/13_qih5tu.png'
+              alt='Torrevieja'
+              fill
+            />
+          </figure>
 
-            <p className={styles.article_title}>
-              Conoce la tirolina más larga de España en Pirineos Aragoneses
-            </p>
-          </div>
-          <Image
-            src='https://multimedia.dygav.es/wp-content/uploads/2024/04/13_qih5tu.png'
-            alt='Torrevieja'
-            fill
-          />
-        </figure>
+          <figure className={styles.article_image}>
+            <div className={styles.article_text}>
+              <p className={styles.article_category}>Ocio y entretenimiento</p>
+              <p className={styles.article_title}>
+                Conoce la tirolina más larga de España en Pirineos Aragoneses
+              </p>
+            </div>
+            <Image
+              src='https://multimedia.dygav.es/wp-content/uploads/2024/04/13_qih5tu.png'
+              alt='Torrevieja'
+              fill
+            />
+          </figure>
 
-        <figure className={styles.article_image}>
-          <div className={styles.article_text}>
-            <p className={styles.article_category}>Ocio y entretenimiento</p>
+          <figure className={styles.article_image}>
+            <div className={styles.article_text}>
+              <p className={styles.article_category}>Ocio y entretenimiento</p>
+              <p className={styles.article_title}>
+                Conoce la tirolina más larga de España en Pirineos Aragoneses
+              </p>
+            </div>
+            <Image
+              src='https://multimedia.dygav.es/wp-content/uploads/2024/04/13_qih5tu.png'
+              alt='Torrevieja'
+              fill
+            />
+          </figure>
 
-            <p className={styles.article_title}>
-              Conoce la tirolina más larga de España en Pirineos Aragoneses
-            </p>
-          </div>
-          <Image
-            src='https://multimedia.dygav.es/wp-content/uploads/2024/04/13_qih5tu.png'
-            alt='Torrevieja'
-            fill
-          />
-        </figure>
+          <figure className={styles.article_image}>
+            <div className={styles.article_text}>
+              <p className={styles.article_category}>Ocio y entretenimiento</p>
+              <p className={styles.article_title}>
+                Conoce la tirolina más larga de España en Pirineos Aragoneses
+              </p>
+            </div>
+            <Image
+              src='https://multimedia.dygav.es/wp-content/uploads/2024/04/13_qih5tu.png'
+              alt='Torrevieja'
+              fill
+            />
+          </figure>
+        </div>
 
-        <figure className={styles.article_image}>
-          <div className={styles.article_text}>
-            <p className={styles.article_category}>Ocio y entretenimiento</p>
-
-            <p className={styles.article_title}>
-              Conoce la tirolina más larga de España en Pirineos Aragoneses
-            </p>
-          </div>
-          <Image
-            src='https://multimedia.dygav.es/wp-content/uploads/2024/04/13_qih5tu.png'
-            alt='Torrevieja'
-            fill
-          />
-        </figure>
-
-        <figure className={styles.article_image}>
-          <div className={styles.article_text}>
-            <p className={styles.article_category}>Ocio y entretenimiento</p>
-
-            <p className={styles.article_title}>
-              Conoce la tirolina más larga de España en Pirineos Aragoneses
-            </p>
-          </div>
-          <Image
-            src='https://multimedia.dygav.es/wp-content/uploads/2024/04/13_qih5tu.png'
-            alt='Torrevieja'
-            fill
-          />
-        </figure>
+        <CiCircleChevRight
+          className={styles.scrollButton}
+          onClick={scrollRight}
+        />
       </div>
     </section>
   );
