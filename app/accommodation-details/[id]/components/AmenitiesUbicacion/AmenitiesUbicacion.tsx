@@ -13,6 +13,10 @@ export const AmenitiesUbicacion = () => {
         { id: 1, name: 'Ascensor' },
         { id: 2, name: 'Estacionamiento' },
         { id: 3, name: 'Rampa' },
+        { id: 4, name: 'Acceso a la playa' },
+        { id: 5, name: 'Acceso a la piscina' },
+        { id: 6, name: 'Acceso a la montaña' },
+        { id: 7, name: 'Acceso a la estación de tren o metro' },
       ],
     },
     {

@@ -50,8 +50,8 @@
   display: grid;
   grid-template-columns: repeat(4, fit-content(90%));
   padding-left: 0.5rem;
-  margin: 1rem 0 6rem;
-  gap: 5rem;
+  margin: 1rem 0 2rem;
+  gap: 2rem;
 }
 
 .amenities_service li {
