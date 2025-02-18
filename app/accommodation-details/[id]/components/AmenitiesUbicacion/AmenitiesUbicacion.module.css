@@ -137,7 +137,8 @@
   .amenities_service {
     grid-template-columns: repeat(2, fit-content(90%));
     margin: 1rem 0 2rem;
-    gap: 1.5rem;
+    column-gap: 1.5rem;
+    row-gap: 1rem;
   }
 
   .amenities_service li {
