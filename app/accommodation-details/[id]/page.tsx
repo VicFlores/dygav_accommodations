@@ -1,6 +1,10 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { AmenitiesUbicacion, AvailabilityCalendar } from './components';
+import {
+  AmenitiesUbicacion,
+  AvailabilityCalendar,
+  PhotoGallery,
+} from './components';
 import { Footer, Hero, Navbar } from '@/app/shared';
 
 export const metadata: Metadata = {
@@ -19,7 +23,7 @@ const AccommodationDDetailPage = () => {
         subtitle='Conoce los detalles de tu alojamiento, para que puedas hacer una mejor eleccion segun tus necesidades.'
       />
 
-      {/* <PhotoGallery /> */}
+      <PhotoGallery />
 
       <AvailabilityCalendar />
 

@@ -7,33 +7,63 @@ import {
   MdOutlineKeyboardArrowRight,
 } from 'react-icons/md';
 import styles from './PhotoGallery.module.css';
+import { useRef } from 'react';
 
 export const PhotoGallery = () => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const mockResponse = {
     accommodationId: '1',
     title: 'Apartamento con Terraza a Pasos de la Playa',
     subtitle: 'Villa en Torrevieja',
     images: [
-      'https://multimedia.dygav.es/wp-content/uploads/2024/04/355063470_173121715568229_6083701798772673336_n_ipcsjk-1.jpg',
-      'https://multimedia.dygav.es/wp-content/uploads/2024/04/355425254_181386181319334_2203436108574430518_n_wfqjji-1.jpg',
-      'https://multimedia.dygav.es/wp-content/uploads/2024/04/354803929_586623450171544_74377877471137664_n_caklv6-1.jpg',
-      'https://multimedia.dygav.es/wp-content/uploads/2024/04/355871521_2352028871646012_1364603506285862344_n_fahq4k-1.jpg',
-      'https://multimedia.dygav.es/wp-content/uploads/2024/04/355063470_173121715568229_6083701798772673336_n_ipcsjk-1.jpg',
+      'https://www.avaibook.com/uploads/fotos_alojs/alojamiento_w1280/9/368989_da9bfa7d52_8.png',
+      'https://www.avaibook.com/uploads/fotos_alojs/alojamiento_w1280/9/368989_773fd05c58_9.png',
+      'https://www.avaibook.com/uploads/fotos_alojs/alojamiento_w1280/9/368989_635d79c4bf_10.png',
+      'https://www.avaibook.com/uploads/fotos_alojs/alojamiento_w1280/9/368989_ba34685992_12.png',
+      'https://www.avaibook.com/uploads/fotos_alojs/alojamiento_w1280/9/368989_076d28240e_21.png',
+      'https://www.avaibook.com/uploads/fotos_alojs/alojamiento_w1280/9/368989_df9ca56832_20.png',
+      'https://www.avaibook.com/uploads/fotos_alojs/alojamiento_w1280/9/368989_1def8c4dbc_19.png',
+      'https://www.avaibook.com/uploads/fotos_alojs/alojamiento_w1280/9/368989_b399092120_18.png',
     ],
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrevClick = () => {
+    const isFirstImage = currentIndex === 0;
+
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? mockResponse.images.length - 1 : prevIndex - 1
     );
+
+    if (scrollContainerRef.current) {
+      if (isFirstImage) {
+        // Scroll to the end
+        scrollContainerRef.current.scrollLeft =
+          scrollContainerRef.current.scrollWidth;
+      } else {
+        // Normal scroll to previous image
+        scrollContainerRef.current.scrollLeft -= 280 + 16; // image width + gap
+      }
+    }
   };
 
   const handleNextClick = () => {
+    const isLastImage = currentIndex === mockResponse.images.length - 1;
+
     setCurrentIndex((prevIndex) =>
       prevIndex === mockResponse.images.length - 1 ? 0 : prevIndex + 1
     );
+
+    if (scrollContainerRef.current) {
+      if (isLastImage) {
+        // Reset scroll position to the beginning
+        scrollContainerRef.current.scrollLeft = 0;
+      } else {
+        // Normal scroll to next image
+        scrollContainerRef.current.scrollLeft += 280 + 16; // image width + gap
+      }
+    }
   };
 
   const handleImageClick = (index: number) => {
@@ -57,17 +87,19 @@ export const PhotoGallery = () => {
         <div className={styles.commingImageContainer}>
           <MdOutlineKeyboardArrowLeft onClick={handlePrevClick} />
 
-          {mockResponse.images.map((image, index) => (
-            <figure
-              key={index}
-              className={`${styles.commingImage} ${
-                index === currentIndex ? styles.active : ''
-              }`}
-              onClick={() => handleImageClick(index)}
-            >
-              <Image src={image} alt={`Foto ${index + 1}`} fill />
-            </figure>
-          ))}
+          <div className={styles.imagesContainer} ref={scrollContainerRef}>
+            {mockResponse.images.map((image, index) => (
+              <figure
+                key={index}
+                className={`${styles.commingImage} ${
+                  index === currentIndex ? styles.active : ''
+                }`}
+                onClick={() => handleImageClick(index)}
+              >
+                <Image src={image} alt={`Foto ${index + 1}`} fill />
+              </figure>
+            ))}
+          </div>
 
           <MdOutlineKeyboardArrowRight onClick={handleNextClick} />
         </div>
