@@ -11,6 +11,10 @@
   gap: 14px;
 }
 
+.cardLink {
+  text-decoration: none;
+}
+
 .leftArrow {
   position: absolute;
   top: 58%;
