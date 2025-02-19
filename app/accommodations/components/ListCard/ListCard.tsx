@@ -2,29 +2,7 @@ import React from 'react';
 import { AccommodationsListCard } from '@/app/shared';
 import styles from './ListCard.module.css';
 import { crmApi } from '@/app/config';
-
-interface Accommodation {
-  accommodationid: number;
-  accommodation: string;
-  introductions: {
-    en: string;
-    es: string;
-  };
-  images: string[];
-  main_features: {
-    VALUE: number;
-    DYGAV_SPANISH: string;
-  }[];
-  capacity: number;
-  categories: {
-    category_id: number;
-  }[];
-}
-
-interface Category {
-  category_id: number;
-  category_name: string;
-}
+import { Accommodation, Category } from '../../interfaces';
 
 export const ListCard = async () => {
   const { data: accommodations } = await crmApi.get<Accommodation[]>(
