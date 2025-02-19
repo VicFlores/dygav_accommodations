@@ -35,7 +35,7 @@ export const ImagesCarousel: FC<{ images: string[]; alt: string }> = ({
         aria-label='previous'
       />
 
-      <Image src={images[currentIndex]} alt={alt} fill />
+      <Image src={images[currentIndex]} alt={alt} fill priority />
 
       <MdOutlineKeyboardArrowRight
         className={styles.carouselArrow}
