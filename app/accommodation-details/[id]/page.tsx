@@ -7,7 +7,7 @@ import {
   Recommendations,
 } from './components';
 import { Footer, Hero, Navbar } from '@/app/shared';
-import { crmApi } from '@/app/config';
+import { getAccommodation, getAccommodations } from '@/app/services';
 
 export const metadata: Metadata = {
   title: 'Accommodation Details',
@@ -22,14 +22,15 @@ export default async function AccommodationDDetailPage({
 }) {
   const { id } = await params;
 
-  const accommodationDetails = await crmApi.get(`/accommodations/${id}`);
+  const accommodations = await getAccommodations();
+  const accommodationDetails = await getAccommodation(id);
 
   if (!accommodationDetails) {
     return null;
   }
 
   const { accommodation, images, introductions, location, features } =
-    accommodationDetails.data;
+    accommodationDetails;
 
   return (
     <>
@@ -51,7 +52,7 @@ export default async function AccommodationDDetailPage({
 
       <AmenitiesUbicacion amenities={features} location={location} />
 
-      <Recommendations />
+      <Recommendations accommodations={accommodations} categoryId={3} />
 
       <Footer />
     </>
