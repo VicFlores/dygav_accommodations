@@ -7,6 +7,7 @@ import {
   Recommendations,
 } from './components';
 import { Footer, Hero, Navbar } from '@/app/shared';
+import { crmApi } from '@/app/config';
 
 export const metadata: Metadata = {
   title: 'Accommodation Details',
@@ -14,7 +15,24 @@ export const metadata: Metadata = {
   keywords: 'Accommodation, Details',
 };
 
-const AccommodationDDetailPage = () => {
+export default async function AccommodationDDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+
+  const accommodationDetails = await crmApi.get(`/accommodations/${id}`);
+
+  if (!accommodationDetails) {
+    return null;
+  }
+
+  const { accommodation, images, introductions, location, features } =
+    accommodationDetails.data;
+
+  console.log(accommodationDetails.data);
+
   return (
     <>
       <Navbar />
@@ -24,17 +42,20 @@ const AccommodationDDetailPage = () => {
         subtitle='Conoce los detalles de tu alojamiento, para que puedas hacer una mejor eleccion segun tus necesidades.'
       />
 
-      <PhotoGallery />
+      <PhotoGallery
+        title={accommodation}
+        subtitle={location.city}
+        images={images}
+        introductions={introductions.es}
+      />
 
       <AvailabilityCalendar />
 
-      <AmenitiesUbicacion />
+      <AmenitiesUbicacion amenities={features} location={location} />
 
       <Recommendations />
 
       <Footer />
     </>
   );
-};
-
-export default AccommodationDDetailPage;
+}
