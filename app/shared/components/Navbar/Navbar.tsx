@@ -25,13 +25,20 @@ export const Navbar = () => {
       </figure>
 
       <div
+        data-testid='burger-menu'
         className={`${styles.burgerMenu} ${isMenuOpen ? styles.open : ''}`}
         onClick={toggleMenu}
       >
         {isMenuOpen ? (
-          <IoMdClose className={styles.burgerMenu_icon} />
+          <IoMdClose
+            data-testid='close-icon'
+            className={styles.burgerMenu_icon}
+          />
         ) : (
-          <GiHamburgerMenu className={styles.burgerMenu_icon} />
+          <GiHamburgerMenu
+            data-testid='burger-icon'
+            className={styles.burgerMenu_icon}
+          />
         )}
       </div>
 
