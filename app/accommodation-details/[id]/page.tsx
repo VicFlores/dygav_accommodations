@@ -31,8 +31,6 @@ export default async function AccommodationDDetailPage({
   const { accommodation, images, introductions, location, features } =
     accommodationDetails.data;
 
-  console.log(accommodationDetails.data);
-
   return (
     <>
       <Navbar />

@@ -1,41 +1,12 @@
 import React from 'react';
 import { AccommodationsListCard } from '@/app/shared';
 import styles from './ListCard.module.css';
-import { crmApi } from '@/app/config';
-import { Accommodation, Category } from '../../interfaces';
+import { getAccommodationsByCategory } from '@/app/shared/utils';
+import { getAccommodations, getCategories } from '@/app/services';
 
 export const ListCard = async () => {
-  const { data: accommodations } = await crmApi.get<Accommodation[]>(
-    '/accommodations'
-  );
-  const { data: categories } = await crmApi.get<Category[]>('/categories');
-
-  // Function to get accommodations by category
-  const getAccommodationsByCategory = (categoryId: number) => {
-    return accommodations
-      .filter((accommodation) =>
-        accommodation.categories.some((cat) => cat.category_id === categoryId)
-      )
-      .map((acc) => ({
-        id: acc.accommodationid,
-        images: acc.images,
-        alt: acc.accommodation,
-        title: acc.accommodation,
-        description: acc.introductions.es || acc.introductions.en,
-        pricePerNight: 'Consultar precio',
-        bedrooms:
-          acc.main_features.find((f) => f.DYGAV_SPANISH === 'Habitaciones')
-            ?.VALUE || 0,
-        bathrooms:
-          acc.main_features.find((f) => f.DYGAV_SPANISH === 'Baños')?.VALUE ||
-          0,
-        size: `${
-          acc.main_features.find((f) => f.DYGAV_SPANISH === 'Superficie')
-            ?.VALUE || 0
-        }m`,
-        maxGuests: acc.capacity,
-      }));
-  };
+  const accommodations = await getAccommodations();
+  const categories = await getCategories();
 
   return (
     <section className={styles.container}>
@@ -45,10 +16,10 @@ export const ListCard = async () => {
 
       {categories.map((category) => {
         const categoryAccommodations = getAccommodationsByCategory(
+          accommodations,
           category.category_id
         );
 
-        // Only render if the category has accommodations
         return categoryAccommodations.length > 0 ? (
           <div key={category.category_id}>
             <h2 className={styles.subtitle}>{category.category_name}</h2>
