@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import {
   PiCalendarDuotone,
   PiHouseLine,
@@ -10,8 +10,23 @@ import {
 import { PiCurrencyEur } from 'react-icons/pi';
 import styles from './AvailabilityCalendar.module.css';
 import { useAvailabilityCalendar } from '../../hooks';
+import { avaibookApi } from '@/app/config';
+import { formatDate } from '@/app/shared/utils';
 
-export const AvailabilityCalendar = () => {
+interface AvailabilityCalendarProps {
+  avaibookId: string;
+  cleaningPrice: number;
+}
+
+interface StayPriceData {
+  total: number;
+}
+
+export const AvailabilityCalendar: FC<AvailabilityCalendarProps> = ({
+  avaibookId,
+  cleaningPrice,
+}) => {
+  const [stayPrice, setStayPrice] = useState<StayPriceData[]>([]);
   const {
     startDate,
     endDate,
@@ -34,6 +49,30 @@ export const AvailabilityCalendar = () => {
     handleCurrentMonth,
     handleClearDates,
   } = useAvailabilityCalendar();
+
+  useEffect(() => {
+    if (startDate && endDate) {
+      const getStayPrice = async () => {
+        const startDateFormatted = formatDate(startDate);
+        const endDateFormatted = formatDate(endDate);
+
+        const res = await avaibookApi.get(
+          `/accommodations/${avaibookId}/booking-price/?checkinDate=${startDateFormatted}&checkoutDate=${endDateFormatted}`
+        );
+
+        if (
+          res.data[0].status === 'AVAILABLE' ||
+          res.data[0].status === 'RESTRICTED'
+        ) {
+          setStayPrice(res.data);
+        } else {
+          setStayPrice([]);
+        }
+      };
+
+      getStayPrice();
+    }
+  }, [startDate, endDate, avaibookId]);
 
   return (
     <div className={styles.calendarContainer}>
@@ -132,7 +171,7 @@ export const AvailabilityCalendar = () => {
           <div>
             <h3>Estancia</h3>
 
-            <p>45.56Є</p>
+            {stayPrice.length > 0 ? <p>{stayPrice[0].total}Є</p> : <p>0Є</p>}
           </div>
         </div>
 
@@ -142,17 +181,20 @@ export const AvailabilityCalendar = () => {
           <div>
             <h3>Limpieza</h3>
 
-            <p>45.56Є</p>
+            <p>{cleaningPrice}Є</p>
           </div>
         </div>
 
         <div className={styles.rate_item}>
           <PiCurrencyEur />
-
           <div>
             <h3>Total a pagar</h3>
 
-            <p>45.56Є</p>
+            {stayPrice.length > 0 ? (
+              <p>{stayPrice[0].total + cleaningPrice}Є</p>
+            ) : (
+              <p>0Є</p>
+            )}
           </div>
         </div>
 

@@ -29,8 +29,16 @@ export default async function AccommodationDDetailPage({
     return null;
   }
 
-  const { accommodation, images, introductions, location, features } =
-    accommodationDetails;
+  const {
+    aviabookid,
+    public_cleaning_price,
+    accommodation,
+    images,
+    introductions,
+    location,
+    features,
+    categories,
+  } = accommodationDetails;
 
   return (
     <>
@@ -48,11 +56,17 @@ export default async function AccommodationDDetailPage({
         introductions={introductions.es}
       />
 
-      <AvailabilityCalendar />
+      <AvailabilityCalendar
+        avaibookId={aviabookid}
+        cleaningPrice={public_cleaning_price}
+      />
 
       <AmenitiesUbicacion amenities={features} location={location} />
 
-      <Recommendations accommodations={accommodations} categoryId={3} />
+      <Recommendations
+        accommodations={accommodations}
+        categoryId={categories[0].category_id}
+      />
 
       <Footer />
     </>
