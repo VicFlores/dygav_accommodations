@@ -1,13 +1,13 @@
 import React from 'react';
 import { Metadata } from 'next';
+import { Footer, Hero, Navbar } from '@/app/shared';
+import { getAccommodation, getAccommodations } from '@/app/services';
 import {
   AmenitiesUbicacion,
   AvailabilityCalendar,
   PhotoGallery,
   Recommendations,
 } from './components';
-import { Footer, Hero, Navbar } from '@/app/shared';
-import { getAccommodation, getAccommodations } from '@/app/services';
 
 export const metadata: Metadata = {
   title: 'Accommodation Details',

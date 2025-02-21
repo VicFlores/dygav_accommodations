@@ -9,22 +9,10 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { ImagesCarousel } from '@/app/accommodations/components';
 import styles from './AccommodationsListCard.module.css';
 import { useAccommodationsListCard } from '../../hooks';
-
-interface AccommodationsListCardProps {
-  id: number;
-  images: string[];
-  alt: string;
-  title: string;
-  description: string;
-  pricePerNight: string;
-  bedrooms: number;
-  bathrooms: number;
-  size: string;
-  maxGuests: number;
-}
+import { AccommodationsList } from '../../interfaces';
 
 export const AccommodationsListCard: FC<{
-  accommodations: AccommodationsListCardProps[];
+  accommodations: AccommodationsList[];
 }> = ({ accommodations }) => {
   const {
     containerRef,
