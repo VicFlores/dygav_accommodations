@@ -39,8 +39,6 @@ export const Recommendations: FC<ReccomendationProps> = ({
     categoryId
   );
 
-  console.log(accommodationsByCategories);
-
   return (
     <section className={styles.container}>
       <h1 className={styles.title}>Te recomendamos visitar tambien</h1>
