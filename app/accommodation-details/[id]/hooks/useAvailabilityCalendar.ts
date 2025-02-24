@@ -194,6 +194,7 @@ export const useAvailabilityCalendar = (
     currentMonth,
     currentYear,
     errorMessage,
+    setErrorMessage,
     dayNames,
     monthNames,
     generateDates,

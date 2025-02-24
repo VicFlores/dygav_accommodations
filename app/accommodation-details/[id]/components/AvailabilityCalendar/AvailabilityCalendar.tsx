@@ -38,6 +38,7 @@ export const AvailabilityCalendar: FC<AvailabilityCalendarProps> = ({
     currentMonth,
     currentYear,
     errorMessage,
+    setErrorMessage,
     dayNames,
     monthNames,
     generateDates,
@@ -76,11 +77,29 @@ export const AvailabilityCalendar: FC<AvailabilityCalendarProps> = ({
           `/accommodations/${avaibookId}/booking-price/?checkinDate=${startDateFormatted}&checkoutDate=${endDateFormatted}`
         );
 
-        if (
-          res.data[0].status === 'AVAILABLE' ||
-          res.data[0].status === 'RESTRICTED'
-        ) {
-          setStayPrice(res.data);
+        const stayPriceData = res.data;
+
+        if (stayPriceData[0].status === 'AVAILABLE') {
+          setStayPrice(stayPriceData);
+        } else if (stayPriceData[0].status === 'RESTRICTED') {
+          const restriction = stayPriceData[0].restrictions.minNights;
+          const restrictionStartDate = new Date(restriction.f_ini);
+          const restrictionEndDate = new Date(restriction.f_fin);
+          const selectedNights =
+            (endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24);
+
+          if (
+            startDate >= restrictionStartDate &&
+            endDate <= restrictionEndDate &&
+            selectedNights >= restriction.min_nights
+          ) {
+            setStayPrice(stayPriceData);
+          } else {
+            setStayPrice([]);
+            setErrorMessage(
+              `Estancia mínima de ${restriction.min_noches} noches`
+            );
+          }
         } else {
           setStayPrice([]);
         }
@@ -88,7 +107,7 @@ export const AvailabilityCalendar: FC<AvailabilityCalendarProps> = ({
 
       getStayPrice();
     }
-  }, [startDate, endDate, avaibookId]);
+  }, [startDate, endDate, avaibookId, setErrorMessage]);
 
   return (
     <div className={styles.calendarContainer}>
