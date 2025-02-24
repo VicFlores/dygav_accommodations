@@ -8,11 +8,11 @@ import {
   PiCreditCard,
 } from 'react-icons/pi';
 import { PiCurrencyEur } from 'react-icons/pi';
-import styles from './AvailabilityCalendar.module.css';
 import { useAvailabilityCalendar } from '../../hooks';
 import { avaibookApi } from '@/app/config';
 import { formatDate } from '@/app/shared/utils';
 import { Reservation } from '../../interfaces';
+import styles from './AvailabilityCalendar.module.css';
 
 interface AvailabilityCalendarProps {
   avaibookId: string;
