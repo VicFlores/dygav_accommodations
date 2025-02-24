@@ -97,7 +97,7 @@ export const AvailabilityCalendar: FC<AvailabilityCalendarProps> = ({
           } else {
             setStayPrice([]);
             setErrorMessage(
-              `Estancia mínima de ${restriction.min_noches} noches`
+              `La estancia mínima es de ${restriction.min_noches} noches`
             );
           }
         } else {
