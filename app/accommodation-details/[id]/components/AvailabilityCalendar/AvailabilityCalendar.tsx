@@ -6,6 +6,10 @@ import {
   PiHouseLine,
   PiTrash,
   PiCreditCard,
+  PiCalendarCheckBold,
+  PiCaretLeftBold,
+  PiCaretRightBold,
+  PiXBold,
 } from 'react-icons/pi';
 import { PiCurrencyEur } from 'react-icons/pi';
 import { useAvailabilityCalendar } from '../../hooks';
@@ -112,21 +116,22 @@ export const AvailabilityCalendar: FC<AvailabilityCalendarProps> = ({
   return (
     <div className={styles.calendarContainer}>
       <div className={styles.navigationButtons}>
-        <button onClick={handlePrevMonth} className={styles.navButton}>
-          Anterior
-        </button>
+        <PiCaretLeftBold
+          onClick={handlePrevMonth}
+          className={styles.navButton}
+        />
 
-        <button onClick={handleNextMonth} className={styles.navButton}>
-          Próximo
-        </button>
+        <PiCaretRightBold
+          onClick={handleNextMonth}
+          className={styles.navButton}
+        />
 
-        <button onClick={handleCurrentMonth} className={styles.navButton}>
-          Mes Atual
-        </button>
+        <PiCalendarCheckBold
+          onClick={handleCurrentMonth}
+          className={styles.navButton}
+        />
 
-        <button onClick={handleClearDates} className={styles.navButton}>
-          Limpiar
-        </button>
+        <PiXBold onClick={handleClearDates} className={styles.navButton} />
       </div>
 
       <div className={styles.calendarWrapper}>
