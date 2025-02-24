@@ -129,10 +129,6 @@ export const AvailabilityCalendar: FC<AvailabilityCalendarProps> = ({
         </button>
       </div>
 
-      {errorMessage && (
-        <div className={styles.errorMessage}>{errorMessage}</div>
-      )}
-
       <div className={styles.calendarWrapper}>
         {[0, 1].map((monthOffset) => {
           const monthDate = new Date(currentYear, currentMonth + monthOffset);
@@ -178,6 +174,10 @@ export const AvailabilityCalendar: FC<AvailabilityCalendarProps> = ({
           );
         })}
       </div>
+
+      {errorMessage && (
+        <div className={styles.errorMessage}>{errorMessage}</div>
+      )}
 
       <div className={styles.rates}>
         <div className={styles.rate_item}>
