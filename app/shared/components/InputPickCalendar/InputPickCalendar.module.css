@@ -75,7 +75,7 @@
   font-size: 24px;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 430px) {
   .calendarContainer {
     width: 90%; /* Add this line */
     left: 22px; /* Ensure this line is present */

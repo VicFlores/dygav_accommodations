@@ -37,7 +37,7 @@
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 430px) {
   .container {
     height: calc(95vh - -30px);
     background-attachment: scroll; /* Add this line for parallax effect */
