@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Reservation } from '../interfaces';
 
 const generateDayNames = () => {
   const days = [];
@@ -43,33 +44,13 @@ const getMonthName = (month: number) => {
   return new Date(2025, month).toLocaleString('default', { month: 'long' });
 };
 
-const reservations = [
-  { startDate: new Date('2025-02-01'), endDate: new Date('2025-02-10') },
-  { startDate: new Date('2025-02-15'), endDate: new Date('2025-02-20') },
-  { startDate: new Date('2025-02-25'), endDate: new Date('2025-02-28') },
-];
-
 const normalizeDate = (date: Date) => {
   return new Date(date.getFullYear(), date.getMonth(), date.getDate());
 };
 
-const isReserved = (date: Date) => {
-  const normalizedDate = normalizeDate(date);
-  return reservations.some(
-    (reservation) =>
-      normalizedDate >= normalizeDate(reservation.startDate) &&
-      normalizedDate <= normalizeDate(reservation.endDate)
-  );
-};
-
-const isRangeReserved = (start: Date, end: Date) => {
-  return reservations.some(
-    (reservation) =>
-      start <= reservation.endDate && end >= reservation.startDate
-  );
-};
-
-export const useAvailabilityCalendar = () => {
+export const useAvailabilityCalendar = (
+  calendarByAccommodation: Reservation[]
+) => {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
   const [hoverDate, setHoverDate] = useState<Date | null>(null);
@@ -87,6 +68,32 @@ export const useAvailabilityCalendar = () => {
     }
     setMonthNames(months);
   }, []);
+
+  const isReserved = (date: Date) => {
+    const normalizedDate = normalizeDate(date);
+
+    return calendarByAccommodation.some((reservation) => {
+      const reservationStart = new Date(reservation.startDate);
+      // Add one day to the end date to include the full last day
+      const reservationEnd = new Date(reservation.endDate);
+      reservationEnd.setDate(reservationEnd.getDate() + 2);
+
+      return (
+        normalizedDate >= reservationStart && normalizedDate < reservationEnd
+      );
+    });
+  };
+
+  const isRangeReserved = (start: Date, end: Date) => {
+    return calendarByAccommodation.some((reservation) => {
+      const reservationStart = new Date(reservation.startDate);
+      // Add one day to the end date to include the full last day
+      const reservationEnd = new Date(reservation.endDate);
+      reservationEnd.setDate(reservationEnd.getDate() + 2);
+
+      return start < reservationEnd && end > reservationStart;
+    });
+  };
 
   const handleDateClick = (date: Date) => {
     const today = new Date();
@@ -130,21 +137,23 @@ export const useAvailabilityCalendar = () => {
   };
 
   const isFirstReserved = (date: Date) => {
-    const normalizedDate = normalizeDate(date);
-    return reservations.some(
+    const formattedDate = date.toISOString().split('T')[0];
+
+    return calendarByAccommodation.some(
       (reservation) =>
-        normalizeDate(reservation.startDate).getTime() ===
-        normalizedDate.getTime()
+        new Date(reservation.startDate).toISOString().split('T')[0] ===
+        formattedDate
     );
   };
 
   const isLastReserved = (date: Date) => {
-    const normalizedDate = normalizeDate(date);
-    return reservations.some(
-      (reservation) =>
-        normalizeDate(reservation.endDate).getTime() ===
-        normalizedDate.getTime()
-    );
+    const formattedDate = date.toISOString().split('T')[0];
+
+    return calendarByAccommodation.some((reservation) => {
+      const endDate = new Date(reservation.endDate);
+      endDate.setDate(endDate.getDate() + 1); // Add one day to end date
+      return endDate.toISOString().split('T')[0] === formattedDate;
+    });
   };
 
   const handlePrevMonth = () => {

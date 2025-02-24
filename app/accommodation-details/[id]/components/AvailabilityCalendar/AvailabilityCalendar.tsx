@@ -12,6 +12,7 @@ import styles from './AvailabilityCalendar.module.css';
 import { useAvailabilityCalendar } from '../../hooks';
 import { avaibookApi } from '@/app/config';
 import { formatDate } from '@/app/shared/utils';
+import { Reservation } from '../../interfaces';
 
 interface AvailabilityCalendarProps {
   avaibookId: string;
@@ -26,6 +27,9 @@ export const AvailabilityCalendar: FC<AvailabilityCalendarProps> = ({
   avaibookId,
   cleaningPrice,
 }) => {
+  const [calendarByAccommodation, setCalendarByAccommodation] = useState<
+    Reservation[]
+  >([]);
   const [stayPrice, setStayPrice] = useState<StayPriceData[]>([]);
   const {
     startDate,
@@ -48,7 +52,19 @@ export const AvailabilityCalendar: FC<AvailabilityCalendarProps> = ({
     handleNextMonth,
     handleCurrentMonth,
     handleClearDates,
-  } = useAvailabilityCalendar();
+  } = useAvailabilityCalendar(calendarByAccommodation);
+
+  useEffect(() => {
+    const getCalendarByAccommodation = async () => {
+      const res = await avaibookApi.get(
+        `/accommodations/${avaibookId}/calendar/`
+      );
+
+      setCalendarByAccommodation(res.data);
+    };
+
+    getCalendarByAccommodation();
+  }, [avaibookId]);
 
   useEffect(() => {
     if (startDate && endDate) {
