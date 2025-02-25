@@ -9,4 +9,5 @@ export interface AccommodationsList {
   bathrooms: number;
   size: string;
   maxGuests: number;
+  slug: string;
 }

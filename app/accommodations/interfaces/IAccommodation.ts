@@ -1,5 +1,6 @@
 export interface Accommodation {
   accommodationid: number;
+  slug: string;
   accommodation: string;
   introductions: {
     en: string;

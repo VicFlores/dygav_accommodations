@@ -45,7 +45,7 @@ export const AccommodationsListCard: FC<{
         {accommodations.map((accommodation) => (
           <Link
             key={accommodation.id}
-            href={`/accommodation-details/${accommodation.id}`}
+            href={`/accommodation-details/${accommodation.slug}`}
             className={styles.cardLink}
           >
             <div className={styles.card}>

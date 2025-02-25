@@ -1,8 +1,8 @@
 import { crmApi } from '../config';
 
-export const getAccommodation = async (id: string) => {
+export const getAccommodation = async (slug: string) => {
   try {
-    const response = await crmApi.get(`/accommodations/${id}`);
+    const response = await crmApi.get(`/accommodations/details/${slug}`);
 
     return response.data;
   } catch (error) {

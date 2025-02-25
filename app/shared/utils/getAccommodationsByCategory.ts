@@ -11,6 +11,7 @@ interface ProcessedAccommodation {
   bathrooms: number;
   size: string;
   maxGuests: number;
+  slug: string;
 }
 
 export const getAccommodationsByCategory = (
@@ -23,6 +24,7 @@ export const getAccommodationsByCategory = (
     )
     .map((acc) => ({
       id: acc.accommodationid,
+      slug: acc.slug,
       images: acc.images,
       alt: acc.accommodation,
       title: acc.accommodation,

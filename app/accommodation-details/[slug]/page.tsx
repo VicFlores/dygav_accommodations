@@ -18,12 +18,12 @@ export const metadata: Metadata = {
 export default async function AccommodationDDetailPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { id } = await params;
+  const { slug } = await params;
 
   const accommodations = await getAccommodations();
-  const accommodationDetails = await getAccommodation(id);
+  const accommodationDetails = await getAccommodation(slug);
 
   if (!accommodationDetails) {
     return null;
