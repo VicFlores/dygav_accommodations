@@ -113,6 +113,9 @@ export const AvailabilityCalendar: FC<AvailabilityCalendarProps> = ({
     }
   }, [startDate, endDate, avaibookId, setErrorMessage]);
 
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // Normalize today's date to remove time part
+
   return (
     <div className={styles.calendarContainer}>
       <div className={styles.navigationButtons}>
@@ -165,6 +168,10 @@ export const AvailabilityCalendar: FC<AvailabilityCalendarProps> = ({
                       date && isFirstReserved(date) ? styles.firstReserved : ''
                     } ${
                       date && isLastReserved(date) ? styles.lastReserved : ''
+                    } ${
+                      date && date.getTime() === today.getTime()
+                        ? styles.currentDay
+                        : ''
                     } ${isDisabled ? styles.disabled : ''}`}
                     onClick={() => !isDisabled && date && handleDateClick(date)}
                     onMouseEnter={() =>

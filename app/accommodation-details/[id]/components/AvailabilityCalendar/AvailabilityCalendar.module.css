@@ -196,6 +196,12 @@
   color: #afafaf;
 }
 
+.currentDay {
+  background-color: #e53611; /* Highlight color for the current day */
+
+  font-weight: bold; /* Make the text bold */
+}
+
 @media screen and (max-width: 768px) {
   .calendarWrapper {
     padding: 10px;
