@@ -199,7 +199,7 @@
 
 .currentDay {
   background-color: #e53611; /* Highlight color for the current day */
-
+  color: white;
   font-weight: bold; /* Make the text bold */
 }
 
