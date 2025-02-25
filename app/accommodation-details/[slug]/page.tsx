@@ -29,8 +29,6 @@ export default async function AccommodationDDetailPage({
     return null;
   }
 
-  console.log(accommodationDetails);
-
   const {
     aviabookid,
     public_cleaning_price,
