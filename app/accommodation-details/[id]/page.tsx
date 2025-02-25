@@ -29,12 +29,14 @@ export default async function AccommodationDDetailPage({
     return null;
   }
 
+  console.log(accommodationDetails);
+
   const {
     aviabookid,
     public_cleaning_price,
     accommodation,
     images,
-    introductions,
+    descriptions,
     location,
     features,
     categories,
@@ -53,7 +55,7 @@ export default async function AccommodationDDetailPage({
         title={accommodation}
         subtitle={location.city}
         images={images}
-        introductions={introductions.es}
+        introductions={descriptions.es}
       />
 
       <AvailabilityCalendar
