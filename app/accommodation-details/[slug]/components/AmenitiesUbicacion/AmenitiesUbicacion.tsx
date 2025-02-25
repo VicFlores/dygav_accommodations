@@ -2,7 +2,12 @@
 
 import React, { FC, useState } from 'react';
 import { MdOutlineCheckCircleOutline } from 'react-icons/md';
-import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
+import {
+  APIProvider,
+  Map,
+  AdvancedMarker,
+  Pin,
+} from '@vis.gl/react-google-maps';
 import styles from './AmenitiesUbicacion.module.css';
 
 interface Amenities {
@@ -89,13 +94,16 @@ export const AmenitiesUbicacion: FC<AmenitiesUbicacionProps> = ({
           defaultZoom={19}
           gestureHandling={'greedy'}
           disableDefaultUI={true}
+          mapId={process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID} // Add map ID here
         >
-          <Marker
+          <AdvancedMarker
             position={{
               lat: location.latitude,
               lng: location.longitude,
             }}
-          />
+          >
+            <Pin background={'#F4511E'} glyphColor={'#fff'} scale={1.2} />
+          </AdvancedMarker>
         </Map>
       </APIProvider>
     </section>
