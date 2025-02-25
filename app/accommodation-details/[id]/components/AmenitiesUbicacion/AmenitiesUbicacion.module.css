@@ -87,6 +87,12 @@
   padding: 0 0.5rem;
 }
 
+.selectedCategory {
+  text-decoration: underline;
+  font-weight: bold;
+  color: #f4511e; /* Optional: Change the color to highlight the selected category */
+}
+
 @media screen and (max-width: 768px) {
   .container {
     margin-top: 1rem;

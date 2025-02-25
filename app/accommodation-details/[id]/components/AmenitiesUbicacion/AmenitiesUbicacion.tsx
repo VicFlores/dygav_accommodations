@@ -26,7 +26,11 @@ export const AmenitiesUbicacion: FC<AmenitiesUbicacionProps> = ({
 }) => {
   // Add capitalize utility function
   const capitalize = (str: string) => {
-    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    return str
+      .replace(/_/g, ' ') // Replace underscores with spaces
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
   };
 
   // Get unique categories
@@ -48,7 +52,13 @@ export const AmenitiesUbicacion: FC<AmenitiesUbicacionProps> = ({
 
       <ul className={styles.amenties}>
         {uniqueCategories.map((category) => (
-          <li key={category} onClick={() => handleCategoryClick(category)}>
+          <li
+            key={category}
+            onClick={() => handleCategoryClick(category)}
+            className={
+              category === selectedCategory ? styles.selectedCategory : ''
+            }
+          >
             {capitalize(category)}
           </li>
         ))}
