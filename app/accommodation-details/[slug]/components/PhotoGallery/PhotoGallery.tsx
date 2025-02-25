@@ -2,6 +2,7 @@
 
 import React, { FC } from 'react';
 import Image from 'next/image';
+import { FaImages } from 'react-icons/fa'; // Import the icon
 
 import styles from './PhotoGallery.module.css';
 
@@ -24,12 +25,17 @@ export const PhotoGallery: FC<PhotoGalleryProps> = ({
 
       <p className={styles.subtitle}>{subtitle}</p>
 
-      <div className={styles.gallery}>
-        {images.slice(0, 5).map((image, index) => (
-          <figure key={index} className={styles.imageContainer}>
-            <Image src={image} alt='Image' fill className={styles.image} />
-          </figure>
-        ))}
+      <div className={styles.galleryContainer}>
+        <div className={styles.gallery}>
+          {images.slice(0, 5).map((image, index) => (
+            <figure key={index} className={styles.imageContainer}>
+              <Image src={image} alt='Image' fill className={styles.image} />
+            </figure>
+          ))}
+        </div>
+        <button className={styles.showAllButton}>
+          <FaImages /> Mostrar todas las fotos
+        </button>
       </div>
 
       <h1 className={styles.title}>Detalles de tu futuro alojamiento</h1>

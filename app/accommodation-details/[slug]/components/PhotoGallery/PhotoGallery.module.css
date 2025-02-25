@@ -59,6 +59,34 @@
   object-fit: cover;
 }
 
+.galleryContainer {
+  position: relative;
+}
+
+.showAllButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #f4511e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.showAllButton svg {
+  margin-right: 8px;
+}
+
+.showAllButton:hover {
+  background-color: #e53611;
+}
+
 @media screen and (max-width: 768px) {
   .title {
     font-size: 1.8rem;
