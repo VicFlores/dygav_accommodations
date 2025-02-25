@@ -91,7 +91,7 @@ export const AmenitiesUbicacion: FC<AmenitiesUbicacionProps> = ({
             lat: location.latitude,
             lng: location.longitude,
           }}
-          defaultZoom={19}
+          defaultZoom={18}
           gestureHandling={'greedy'}
           disableDefaultUI={true}
           mapId={process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID} // Add map ID here
