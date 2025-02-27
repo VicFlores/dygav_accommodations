@@ -13,6 +13,7 @@ export const ListCard = async () => {
       <h1 className={styles.title}>
         Descubre nuestros alojamientos turísticos
       </h1>
+
       {categories.map((category) => {
         const categoryAccommodations = getAccommodationsByCategory(
           accommodations,

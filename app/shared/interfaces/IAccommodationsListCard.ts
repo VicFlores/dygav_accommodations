@@ -1,6 +1,6 @@
 export interface AccommodationsList {
   id: number;
-  images: string[];
+  images: { url: string }[];
   alt: string;
   title: string;
   description: string;

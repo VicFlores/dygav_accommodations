@@ -8,17 +8,20 @@ import {
 } from 'react-icons/md';
 import styles from './ImagesCarousel.module.css';
 
-export const ImagesCarousel: FC<{ images: string[]; alt: string }> = ({
+export const ImagesCarousel: FC<{ images: { url: string }[]; alt: string }> = ({
   images,
   alt,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Limit the images array to 10 items
+  const limitedImages = images.slice(0, 18);
+
   const handlePrev = (e: React.MouseEvent) => {
     e.stopPropagation();
     e.preventDefault(); // Prevent the default link behavior
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? limitedImages.length - 1 : prevIndex - 1
     );
   };
 
@@ -26,7 +29,7 @@ export const ImagesCarousel: FC<{ images: string[]; alt: string }> = ({
     e.stopPropagation();
     e.preventDefault(); // Prevent the default link behavior
     setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      prevIndex === limitedImages.length - 1 ? 0 : prevIndex + 1
     );
   };
 
@@ -39,7 +42,13 @@ export const ImagesCarousel: FC<{ images: string[]; alt: string }> = ({
         aria-label='previous'
       />
 
-      <Image src={images[currentIndex]} alt={alt} fill priority />
+      <Image
+        src={limitedImages[currentIndex].url}
+        alt={alt}
+        fill
+        priority
+        sizes='(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw'
+      />
 
       <MdOutlineKeyboardArrowRight
         className={styles.carouselArrow}
@@ -49,7 +58,7 @@ export const ImagesCarousel: FC<{ images: string[]; alt: string }> = ({
       />
 
       <div className={styles.indicator}>
-        {images.map((_, index) => (
+        {limitedImages.map((_, index) => (
           <div
             key={index}
             className={`${styles.indicatorDot} ${

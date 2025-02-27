@@ -54,6 +54,7 @@ export const AccommodationsListCard: FC<{
 
                 <ImagesCarousel
                   images={accommodation.images}
+                  // images={images}
                   alt={accommodation.alt}
                 />
               </figure>
