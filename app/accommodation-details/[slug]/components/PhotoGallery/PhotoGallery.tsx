@@ -9,12 +9,12 @@ import styles from './PhotoGallery.module.css';
 interface PhotoGalleryProps {
   title: string;
   subtitle: string;
-  images: { url: string }[];
+  images: { url: string; orientation: 'portrait' | 'landscape' }[];
   introductions: string;
 }
 
 interface ModalProps {
-  images: { url: string }[];
+  images: { url: string; orientation: 'portrait' | 'landscape' }[];
   onClose: () => void;
 }
 
@@ -29,6 +29,12 @@ export const PhotoGallery: FC<PhotoGalleryProps> = ({
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
+  // Filter to include only horizontal images
+  const horizontalImages = images.filter(
+    (image) => image.orientation === 'landscape'
+  );
+  const displayedImages = horizontalImages.slice(0, 5);
+
   return (
     <section className={styles.container}>
       <h1 className={styles.title}>{title}</h1>
@@ -37,7 +43,7 @@ export const PhotoGallery: FC<PhotoGalleryProps> = ({
 
       <div className={styles.galleryContainer}>
         <div className={styles.gallery}>
-          {images.slice(0, 5).map((image, index) => (
+          {displayedImages.map((image, index) => (
             <figure
               key={index}
               className={styles.imageContainer}
@@ -76,7 +82,14 @@ const Modal: FC<ModalProps> = ({ images, onClose }) => {
 
         <div className={styles.modalGallery}>
           {images.map((image, index) => (
-            <figure key={index} className={styles.modalImageContainer}>
+            <figure
+              key={index}
+              className={`${styles.modalImageContainer} ${
+                image.orientation === 'portrait'
+                  ? styles.portrait
+                  : styles.landscape
+              }`}
+            >
               <Image
                 src={image.url}
                 alt={`Image ${index + 1}`}
