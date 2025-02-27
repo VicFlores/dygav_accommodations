@@ -180,4 +180,56 @@
   .paragraph {
     font-size: 0.8rem;
   }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery figure:not(:last-child) {
+    display: none;
+  }
+
+  .gallery figure .imageContainer {
+    height: 50vh;
+  }
+
+  .imageContainer:nth-child(1) {
+    grid-row: span 1;
+    border-radius: 12px;
+  }
+
+  .imageContainer:nth-child(3),
+  .imageContainer:nth-child(5) {
+    border-radius: 0;
+  }
+
+  .showAllButton {
+    bottom: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+
+  .modalContent {
+    padding: 20px;
+    width: 95%;
+  }
+
+  .closeButton {
+    top: 5px;
+    right: 5px;
+    font-size: 1rem;
+  }
+
+  .modalGallery {
+    grid-template-columns: repeat(1, minmax(150px, 1fr));
+  }
+
+  .portrait {
+    min-height: 40vh;
+  }
+
+  .landscape {
+    height: 25vh;
+  }
 }
