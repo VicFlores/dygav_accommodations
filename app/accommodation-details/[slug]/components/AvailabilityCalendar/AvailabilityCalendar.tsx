@@ -19,7 +19,7 @@ import { Reservation } from '../../interfaces';
 import styles from './AvailabilityCalendar.module.css';
 
 interface AvailabilityCalendarProps {
-  avaibookId: string;
+  avaibookId: number;
   cleaningPrice: number;
 }
 

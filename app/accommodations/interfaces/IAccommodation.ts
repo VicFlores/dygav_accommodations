@@ -15,4 +15,22 @@ export interface Accommodation {
   categories: {
     category_id: number;
   }[];
+  aviabookid: number;
+  public_cleaning_price: number;
+  descriptions: {
+    en: string;
+    es: string;
+  };
+  location: {
+    city: string;
+    country: string;
+    latitude: number;
+    longitude: number;
+  };
+  features: {
+    CATEGORY_EN: string;
+    CATEGORY_ES: string;
+    DYGAV_ENGLISH: string;
+    DYGAV_SPANISH: string;
+  }[];
 }

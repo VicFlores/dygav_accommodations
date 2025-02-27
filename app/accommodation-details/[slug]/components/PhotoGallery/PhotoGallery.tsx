@@ -9,12 +9,12 @@ import styles from './PhotoGallery.module.css';
 interface PhotoGalleryProps {
   title: string;
   subtitle: string;
-  images: string[];
+  images: { url: string }[];
   introductions: string;
 }
 
 interface ModalProps {
-  images: string[];
+  images: { url: string }[];
   onClose: () => void;
 }
 
@@ -43,7 +43,12 @@ export const PhotoGallery: FC<PhotoGalleryProps> = ({
               className={styles.imageContainer}
               onClick={openModal}
             >
-              <Image src={image} alt='Image' fill className={styles.image} />
+              <Image
+                src={image.url}
+                alt='Image'
+                fill
+                className={styles.image}
+              />
             </figure>
           ))}
         </div>
@@ -73,7 +78,7 @@ const Modal: FC<ModalProps> = ({ images, onClose }) => {
           {images.map((image, index) => (
             <figure key={index} className={styles.modalImageContainer}>
               <Image
-                src={image}
+                src={image.url}
                 alt={`Image ${index + 1}`}
                 layout='fill'
                 objectFit='cover'
