@@ -33,6 +33,7 @@ export const PhotoGallery: FC<PhotoGalleryProps> = ({
   const horizontalImages = images.filter(
     (image) => image.orientation === 'landscape'
   );
+
   const displayedImages = horizontalImages.slice(0, 5);
 
   return (
