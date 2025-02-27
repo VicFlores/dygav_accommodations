@@ -56,6 +56,10 @@
   animation: fadeIn 0.3s ease-in;
 }
 
+.fadeIn {
+  animation: fadeIn 0.3s ease-in;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

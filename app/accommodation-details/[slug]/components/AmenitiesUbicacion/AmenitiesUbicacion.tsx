@@ -70,7 +70,10 @@ export const AmenitiesUbicacion: FC<AmenitiesUbicacionProps> = ({
       </ul>
 
       {selectedCategory && (
-        <ul className={styles.amenities_service}>
+        <ul
+          key={selectedCategory} // Add key to force re-render
+          className={`${styles.amenities_service} ${styles.fadeIn}`}
+        >
           {amenities
             .filter((item) => item.CATEGORY_ES === selectedCategory)
             .map((item, index) => (
