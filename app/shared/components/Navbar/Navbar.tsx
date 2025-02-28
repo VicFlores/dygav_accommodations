@@ -29,29 +29,25 @@ export const Navbar = () => {
         className={`${styles.burgerMenu} ${isMenuOpen ? styles.open : ''}`}
         onClick={toggleMenu}
       >
-        {isMenuOpen ? (
-          <IoMdClose
-            data-testid='close-icon'
-            className={styles.burgerMenu_icon}
-          />
-        ) : (
-          <GiHamburgerMenu
-            data-testid='burger-icon'
-            className={styles.burgerMenu_icon}
-          />
-        )}
+        <GiHamburgerMenu
+          data-testid='burger-icon'
+          className={styles.burgerMenu_icon}
+        />
       </div>
 
       <div className={`${styles.sidebar} ${isMenuOpen ? styles.open : ''}`}>
-        {isMenuOpen && (
-          <figure className={styles.logoMobile}>
-            <Image
-              src='https://dygav-storage.nyc3.cdn.digitaloceanspaces.com/dygav_official/dygav_white.svg'
-              alt='Logo de Dygav'
-              fill
-            />
-          </figure>
-        )}
+        <IoMdClose
+          data-testid='close-icon'
+          className={styles.closeButton}
+          onClick={toggleMenu}
+        />
+        <figure className={styles.logoMobile}>
+          <Image
+            src='https://dygav-storage.nyc3.cdn.digitaloceanspaces.com/dygav_official/dygav_white.svg'
+            alt='Logo de Dygav'
+            fill
+          />
+        </figure>
 
         <ul>
           <li>
