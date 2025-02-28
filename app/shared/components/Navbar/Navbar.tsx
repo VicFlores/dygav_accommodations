@@ -43,6 +43,16 @@ export const Navbar = () => {
       </div>
 
       <div className={`${styles.sidebar} ${isMenuOpen ? styles.open : ''}`}>
+        {isMenuOpen && (
+          <figure className={styles.logoMobile}>
+            <Image
+              src='https://dygav-storage.nyc3.cdn.digitaloceanspaces.com/dygav_official/dygav_white.svg'
+              alt='Logo de Dygav'
+              fill
+            />
+          </figure>
+        )}
+
         <ul>
           <li>
             <Link href='#'>Viaja</Link>
