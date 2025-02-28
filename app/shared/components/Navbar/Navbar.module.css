@@ -73,32 +73,6 @@
     padding: 0 10px;
   }
 
-  .navigationContainer ul {
-    visibility: hidden;
-    flex-direction: column;
-    width: 100%;
-    background-color: #f4511e;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    padding: 10px 0;
-    margin-top: 10px;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-    border-radius: 8px;
-  }
-
-  .navigationContainer ul.showMenu {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .navigationContainer ul li {
-    margin: 10px 0;
-  }
-
   .burgerMenu {
     display: block;
   }
@@ -107,11 +81,57 @@
     font-size: 28px;
   }
 
-  .navigationContainer ul li:nth-child(6) {
-    background-color: white;
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: #f4511e;
+    transition: left 0.3s ease;
+    z-index: 20;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
   }
 
-  .navigationContainer ul li:nth-child(6) a {
+  .sidebar.open {
+    left: 0;
+  }
+
+  .sidebar ul {
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar ul li {
+    margin: 10px 0;
+  }
+
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  .sidebar ul li:nth-child(5) {
+    background-color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+  }
+
+  .sidebar ul li:nth-child(5) a {
+    color: #f4511e;
+  }
+
+  .sidebar ul li:nth-child(6) {
+    background-color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+  }
+
+  .sidebar ul li:nth-child(6) a {
     color: #f4511e;
   }
 }

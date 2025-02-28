@@ -55,6 +55,7 @@ export const PhotoGallery: FC<PhotoGalleryProps> = ({
                 alt='Image'
                 fill
                 className={styles.image}
+                priority
               />
             </figure>
           ))}

@@ -42,26 +42,28 @@ export const Navbar = () => {
         )}
       </div>
 
-      <ul className={`${styles.navLinks} ${isMenuOpen ? styles.showMenu : ''}`}>
-        <li>
-          <Link href='#'>Viaja</Link>
-        </li>
-        <li>
-          <Link href='#'>Alojamientos</Link>
-        </li>
-        <li>
-          <Link href='#'>Propietarios</Link>
-        </li>
-        <li>
-          <Link href='#'>Licencias VUT</Link>
-        </li>
-        <li>
-          <Link href='#'>Crear cuenta</Link>
-        </li>
-        <li>
-          <Link href='#'>Iniciar sesión</Link>
-        </li>
-      </ul>
+      <div className={`${styles.sidebar} ${isMenuOpen ? styles.open : ''}`}>
+        <ul>
+          <li>
+            <Link href='#'>Viaja</Link>
+          </li>
+          <li>
+            <Link href='#'>Alojamientos</Link>
+          </li>
+          <li>
+            <Link href='#'>Propietarios</Link>
+          </li>
+          <li>
+            <Link href='#'>Licencias VUT</Link>
+          </li>
+          <li>
+            <Link href='#'>Crear cuenta</Link>
+          </li>
+          <li>
+            <Link href='#'>Iniciar sesión</Link>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };

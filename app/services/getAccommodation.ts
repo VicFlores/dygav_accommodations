@@ -7,14 +7,7 @@ export const getAccommodation = async (slug: string) => {
       `/accommodations/details/${slug}`
     );
 
-    const accommodation = {
-      ...response.data,
-      images: response.data.images.map((image) =>
-        JSON.parse(image.replace(/'/g, '"'))
-      ),
-    };
-
-    return accommodation;
+    return response.data;
   } catch (error) {
     throw new Error(error instanceof Error ? error.message : String(error));
   }
