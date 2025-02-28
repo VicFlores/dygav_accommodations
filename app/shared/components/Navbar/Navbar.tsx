@@ -36,18 +36,22 @@ export const Navbar = () => {
       </div>
 
       <div className={`${styles.sidebar} ${isMenuOpen ? styles.open : ''}`}>
-        <IoMdClose
-          data-testid='close-icon'
-          className={styles.closeButton}
-          onClick={toggleMenu}
-        />
-        <figure className={styles.logoMobile}>
-          <Image
-            src='https://dygav-storage.nyc3.cdn.digitaloceanspaces.com/dygav_official/dygav_white.svg'
-            alt='Logo de Dygav'
-            fill
-          />
-        </figure>
+        {isMenuOpen && (
+          <>
+            <IoMdClose
+              data-testid='close-icon'
+              className={styles.closeButton}
+              onClick={toggleMenu}
+            />
+            <figure className={styles.logoMobile}>
+              <Image
+                src='https://dygav-storage.nyc3.cdn.digitaloceanspaces.com/dygav_official/dygav_white.svg'
+                alt='Logo de Dygav'
+                fill
+              />
+            </figure>
+          </>
+        )}
 
         <ul>
           <li>
