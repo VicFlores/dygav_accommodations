@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   keywords: 'Accommodation, Details',
 };
 
-export default async function AccommodationDDetailPage({
+export default async function AccommodationDetailPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
