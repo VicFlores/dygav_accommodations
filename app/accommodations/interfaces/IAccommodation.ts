@@ -6,7 +6,7 @@ export interface Accommodation {
     en: string;
     es: string;
   };
-  images: string[];
+  images: { url: string; orientation: 'portrait' | 'landscape' }[];
   main_features: {
     VALUE: number;
     DYGAV_SPANISH: string;
