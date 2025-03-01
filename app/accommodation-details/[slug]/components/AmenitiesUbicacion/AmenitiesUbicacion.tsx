@@ -94,7 +94,7 @@ export const AmenitiesUbicacion: FC<AmenitiesUbicacionProps> = ({
             lat: location.latitude,
             lng: location.longitude,
           }}
-          defaultZoom={18}
+          defaultZoom={17}
           gestureHandling={'greedy'}
           disableDefaultUI={true}
           mapId={process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID} // Add map ID here
@@ -105,7 +105,7 @@ export const AmenitiesUbicacion: FC<AmenitiesUbicacionProps> = ({
               lng: location.longitude,
             }}
           >
-            <Pin background={'#F4511E'} glyphColor={'#fff'} scale={1.2} />
+            <Pin background={'#F4511E'} glyphColor={'#fff'} scale={1.4} />
           </AdvancedMarker>
         </Map>
       </APIProvider>
