@@ -7,7 +7,6 @@
 
 .container {
   display: flex;
-  justify-content: center;
   align-items: center;
   overflow: hidden;
   gap: 14px;
@@ -228,6 +227,6 @@
   }
 
   .container {
-    gap: 10px;
+    gap: 2px;
   }
 }
