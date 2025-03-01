@@ -2,7 +2,7 @@
 
 import React, { FC, useState } from 'react';
 import Image from 'next/image';
-import { FaImages, FaTimes } from 'react-icons/fa'; // Import the icon
+import { FaImages, FaTimes, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 import styles from './PhotoGallery.module.css';
 
@@ -15,6 +15,12 @@ interface PhotoGalleryProps {
 
 interface ModalProps {
   images: { url: string; orientation: 'portrait' | 'landscape' }[];
+  onClose: () => void;
+}
+
+interface SlideshowProps {
+  images: { url: string; orientation: 'portrait' | 'landscape' }[];
+  startIndex: number;
   onClose: () => void;
 }
 
@@ -75,6 +81,16 @@ export const PhotoGallery: FC<PhotoGalleryProps> = ({
 };
 
 const Modal: FC<ModalProps> = ({ images, onClose }) => {
+  const [slideshowIndex, setSlideshowIndex] = useState<number | null>(null);
+
+  const openSlideshow = (index: number) => {
+    setSlideshowIndex(index);
+  };
+
+  const closeSlideshow = () => {
+    setSlideshowIndex(null);
+  };
+
   return (
     <div className={styles.modalOverlay} onClick={onClose}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
@@ -91,6 +107,7 @@ const Modal: FC<ModalProps> = ({ images, onClose }) => {
                   ? styles.portrait
                   : styles.landscape
               }`}
+              onClick={() => openSlideshow(index)}
             >
               <Image
                 src={image.url}
@@ -101,6 +118,68 @@ const Modal: FC<ModalProps> = ({ images, onClose }) => {
               />
             </figure>
           ))}
+        </div>
+      </div>
+
+      {slideshowIndex !== null && (
+        <Slideshow
+          images={images}
+          startIndex={slideshowIndex}
+          onClose={closeSlideshow}
+        />
+      )}
+    </div>
+  );
+};
+
+const Slideshow: FC<SlideshowProps> = ({ images, startIndex, onClose }) => {
+  const [currentIndex, setCurrentIndex] = useState(startIndex);
+
+  const goToPrevious = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  return (
+    <div className={styles.slideshowOverlay} onClick={onClose}>
+      <div
+        className={styles.slideshowContent}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button className={styles.slideshowClose} onClick={onClose}>
+          <FaTimes />
+        </button>
+
+        <button className={styles.slideshowPrev} onClick={goToPrevious}>
+          <FaArrowLeft />
+        </button>
+
+        <div className={styles.slideshowImageContainer}>
+          <Image
+            src={images[currentIndex].url}
+            alt={`Slide ${currentIndex + 1}`}
+            fill
+            className={styles.slideshowImage}
+            sizes='100vw'
+            priority
+          />
+        </div>
+
+        <button className={styles.slideshowNext} onClick={goToNext}>
+          <FaArrowRight />
+        </button>
+
+        <div className={styles.slideshowCounter}>
+          {currentIndex + 1} / {images.length}
         </div>
       </div>
     </div>
