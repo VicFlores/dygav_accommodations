@@ -22,6 +22,12 @@
   overflow-x: scroll;
 }
 
+.amenties li {
+  list-style: none;
+  font-size: 1.1rem;
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
 .amenties::-webkit-scrollbar {
   height: 5px;
   width: 5px;
