@@ -7,7 +7,6 @@
 
 .container {
   display: flex;
-  align-items: center;
   overflow: hidden;
   gap: 14px;
 }
@@ -44,11 +43,14 @@
 
 .card {
   width: 335px;
+  height: 450px; /* Set a fixed height for all cards */
   margin: 0 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column; /* Stack child elements vertically */
 }
 
 .card.visible {
@@ -115,7 +117,7 @@
   justify-content: space-between;
   background-color: #f4511e;
   color: white;
-  height: 55px;
+  min-height: 55px;
   border-radius: 0 0 10px 10px;
 }
 
