@@ -47,7 +47,6 @@ export const AccommodationsListCard: FC<{
             key={accommodation.id}
             href={`/accommodation-details/${accommodation.slug}`}
             className={styles.cardLink}
-            prefetch={true} // Ensure prefetching
           >
             <div className={styles.card}>
               <figure className={styles.imageContainer}>
