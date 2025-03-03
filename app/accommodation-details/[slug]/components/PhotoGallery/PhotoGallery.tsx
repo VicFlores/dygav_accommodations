@@ -9,17 +9,17 @@ import styles from './PhotoGallery.module.css';
 interface PhotoGalleryProps {
   title: string;
   subtitle: string;
-  images: { url: string; orientation: 'portrait' | 'landscape' }[];
+  images: { url: string; orientation: 'portrait' | 'landscape' | 'square' }[];
   introductions: string;
 }
 
 interface ModalProps {
-  images: { url: string; orientation: 'portrait' | 'landscape' }[];
+  images: { url: string; orientation: 'portrait' | 'landscape' | 'square' }[];
   onClose: () => void;
 }
 
 interface SlideshowProps {
-  images: { url: string; orientation: 'portrait' | 'landscape' }[];
+  images: { url: string; orientation: 'portrait' | 'landscape' | 'square' }[];
   startIndex: number;
   onClose: () => void;
 }
@@ -37,7 +37,8 @@ export const PhotoGallery: FC<PhotoGalleryProps> = ({
 
   // Filter to include only horizontal images
   const horizontalImages = images.filter(
-    (image) => image.orientation === 'landscape'
+    (image) =>
+      image.orientation === 'landscape' || image.orientation === 'square'
   );
 
   const displayedImages = horizontalImages.slice(0, 5);
