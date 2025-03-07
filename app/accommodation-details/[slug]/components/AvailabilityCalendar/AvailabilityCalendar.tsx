@@ -92,10 +92,14 @@ export const AvailabilityCalendar: FC<AvailabilityCalendarProps> = ({
           const selectedNights =
             (endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24);
 
+          // Check if the selected date range overlaps with the restriction period
+          const rangeOverlapsRestriction =
+            startDate <= restrictionEndDate && endDate >= restrictionStartDate;
+
+          // If there's an overlap, check if minimum nights requirement is met
           if (
-            startDate >= restrictionStartDate &&
-            endDate <= restrictionEndDate &&
-            selectedNights >= restriction.min_nights
+            !rangeOverlapsRestriction ||
+            selectedNights >= parseInt(restriction.min_noches)
           ) {
             setStayPrice(stayPriceData);
           } else {
