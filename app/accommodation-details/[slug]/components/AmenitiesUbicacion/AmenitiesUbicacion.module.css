@@ -53,11 +53,10 @@
 }
 
 .amenities_service {
-  display: grid;
-  grid-template-columns: repeat(6, fit-content(90%));
-  padding-left: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
   margin: 1rem 0 2rem;
-  row-gap: 1.5rem;
+  row-gap: 1rem;
   column-gap: 2rem;
   animation: fadeIn 0.3s ease-in;
 }
@@ -121,10 +120,8 @@
   }
 
   .amenities_service {
-    grid-template-columns: repeat(5, fit-content(90%));
-    margin: 1rem 0 4rem;
-    row-gap: 1.5rem;
     column-gap: 1.5rem;
+    row-gap: 1rem;
   }
 
   .amenities_service li {
@@ -154,11 +151,8 @@
   }
 
   .amenities_service {
-    grid-template-columns: repeat(2, fit-content(90%));
-    margin: 1rem 0 2rem;
-    column-gap: 1.5rem;
-    row-gap: 1rem;
-    width: 100%;
+    column-gap: 1.2rem;
+    row-gap: 1.6rem;
   }
 
   .amenities_service li {
