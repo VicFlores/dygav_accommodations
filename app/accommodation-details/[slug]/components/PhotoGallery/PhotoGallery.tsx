@@ -2,7 +2,13 @@
 
 import React, { FC, useState } from 'react';
 import Image from 'next/image';
-import { FaImages, FaTimes, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import {
+  FaImages,
+  FaTimes,
+  FaArrowLeft,
+  FaArrowRight,
+  FaExpand,
+} from 'react-icons/fa';
 
 import styles from './PhotoGallery.module.css';
 
@@ -69,6 +75,10 @@ export const PhotoGallery: FC<PhotoGalleryProps> = ({
         </div>
         <button className={styles.showAllButton} onClick={openModal}>
           <FaImages /> Mostrar todas las fotos
+        </button>
+        <button className={styles.counterButton} onClick={openModal}>
+          <FaExpand className={styles.expandIcon} />
+          {images.length} fotos
         </button>
       </div>
 

@@ -88,6 +88,11 @@
   background-color: #e53611;
 }
 
+/* Add these new classes for the mobile counter button */
+.counterButton {
+  display: none;
+}
+
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -321,8 +326,29 @@
   }
 
   .showAllButton {
+    display: none;
     padding: 8px 16px;
     font-size: 0.9rem;
+  }
+
+  .counterButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 8px 12px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+
+  .counterButton svg {
+    margin-right: 6px;
   }
 }
 
@@ -371,6 +397,13 @@
     right: 10px;
     padding: 5px 10px;
     font-size: 0.8rem;
+  }
+
+  .counterButton {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    bottom: 10px;
+    right: 10px;
   }
 
   .modalContent {
